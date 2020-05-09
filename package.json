@@ -9,9 +9,16 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "konva": "^5.0.3",
+    "scribbletune": "^3.5.3",
+    "svg.js": "^2.7.1",
+    "tone": "^13.8.25",
+    "vue": "^2.6.11",
+    "vue-konva": "^2.1.1",
+    "vuetify": "^2.2.11"
   },
   "devDependencies": {
+    "@mdi/js": "^5.1.45",
     "@vue/cli-plugin-babel": "~4.3.0",
     "@vue/cli-plugin-eslint": "~4.3.0",
     "@vue/cli-service": "~4.3.0",
@@ -21,6 +28,10 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^1.19.1",
-    "vue-template-compiler": "^2.6.11"
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "vue-cli-plugin-vuetify": "^2.0.5",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.3.0"
   }
 }
