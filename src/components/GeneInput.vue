@@ -15,8 +15,7 @@
               :items="sampleGenesNames"
               label="Beispielgene"
               @change="loadSampleDna"
-              >Samples</v-select
-            >
+            >Samples</v-select>
             <v-text-field
               class="mx-4"
               label="NCBI Nukleotidsuche"
@@ -26,15 +25,10 @@
             ></v-text-field>
 
             <v-card-actions>
-              <v-btn dark color="green lighten-1" @click="updateDna">
-                <v-icon left>mdi-cached</v-icon>DNA-Bestätigen
-              </v-btn>
-
-              <v-spacer></v-spacer>
               <v-dialog max-width="800">
                 <template v-slot:activator="{ on }">
-                  <v-btn color="green lighten-1" dark v-on="on">
-                    <v-icon>mdi-format-text-rotation-none</v-icon>Übersetzer
+                  <v-btn color="green" dark v-on="on">
+                    <v-icon>mdi-format-text-rotation-none</v-icon>DNA-Übersetzer
                   </v-btn>
                 </template>
                 <TranslationPopup></TranslationPopup>
@@ -57,6 +51,7 @@
         <v-col xs="12" sm="12" md="8" lg="8" xl="8">
           <v-textarea
             class="mx-4"
+            @input="debounceDNAInput"
             v-model="dna"
             clearable
             outlined
@@ -74,15 +69,14 @@
 <script>
 import { sampleGenes } from "./../plugins/sampleGenes";
 import TranslationPopup from "./TranslationPopup";
+const debounce = require("lodash/debounce");
+
 export default {
   components: {
     TranslationPopup
   },
   data: () => ({
     dna: "",
-    textHuman: "",
-    textDna: "",
-    loading: false,
     alert: false,
     searchTerm: "",
     selectedSample: Object.keys(sampleGenes)[0],
@@ -102,18 +96,20 @@ export default {
       this.updateDna();
     },
     updateDna() {
-      this.loading = true;
       if (/^[atguc\s]+$/i.test(this.dna)) {
         this.dna = this.dna.replace(/\s/g, "").toUpperCase();
         this.$emit("dnaUpdated", this.dna.replace(/T/g, "U"));
+        this.alert = false;
       } else {
         this.alert = true;
       }
-      this.loading = false;
     },
     closeAlert() {
       this.alert = false;
-    }
+    },
+    debounceDNAInput: debounce(function() {
+      this.updateDna();
+    }, 1000)
   }
 };
 </script>

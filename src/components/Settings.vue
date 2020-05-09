@@ -223,7 +223,6 @@ export default {
   props: {
     algorithms: { type: Array },
     reset: { type: Boolean },
-    status: { type: Object },
     synthesizers: { type: Array },
     specificConfigs: { type: Object },
     noteValues: { type: Array }

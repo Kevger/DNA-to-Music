@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.6.4",
     "konva": "^5.0.3",
+    "lodash": "^4.17.15",
     "scribbletune": "^3.5.3",
     "svg.js": "^2.7.1",
     "tone": "^13.8.25",

@@ -11,7 +11,6 @@
           <v-col xs="12" sm="12" md="4" lg="4" xl="4">
             <Settings
               :algorithms="algorithms"
-              :status="progress"
               :synthesizers="shownSynthesizers"
               :specificConfigs="specificConfigs"
               :noteValues="[
@@ -35,27 +34,17 @@
             />
           </v-col>
           <v-col xs="12" sm="12" md="8" lg="8" xl="8">
-            <GeneOutput
-              :update="updateOuput"
-              :activeAlgorithms="activeAlgorithms"
-            ></GeneOutput>
+            <GeneOutput :update="updateOuput" :activeAlgorithms="activeAlgorithms"></GeneOutput>
           </v-col>
         </v-row>
       </v-container>
     </v-content>
 
     <v-dialog v-model="loading" fullscreen>
-      <v-container
-        fluid
-        fill-height
-        style="background-color: rgba(255, 255, 255, 0.5);"
-      >
+      <v-container fluid fill-height style="background-color: rgba(255, 255, 255, 0.5);">
         <v-layout justify-center align-center>
           Lade Instrumente...
-          <v-progress-circular
-            indeterminate
-            color="primary"
-          ></v-progress-circular>
+          <v-progress-circular indeterminate color="primary"></v-progress-circular>
         </v-layout>
       </v-container>
     </v-dialog>
@@ -100,7 +89,6 @@ export default {
     stopped: false,
     updateOuput: [],
     activeAlgorithms: 0,
-    progress: { maxI: 0, i: 0 },
     algorithms: ["Basen", "Aminos", "Codons", "Sprache"],
     algorithm: "",
     synthesizers: availableSynthesizers,
@@ -150,17 +138,11 @@ export default {
       console.log("Music rewinded");
       this.stopped = false;
       this.resetPlayer = !this.resetPlayer;
-      this.progress.i = 0;
-      this.progress.maxI = 0;
     },
     onPlayingUpdate(isPlaying) {
       const callback = information => {
         if (this.visualizationActive)
           this.$set(this.updateOuput, information.key, information);
-        if (information.maxIndex >= this.progress.maxI) {
-          this.progress.maxI = information.maxIndex;
-          this.progress.i = information.i;
-        }
       };
 
       if (isPlaying) {
