@@ -2,39 +2,93 @@
   <v-card>
     <v-app-bar color="green" dark>
       <v-icon x-large>mdi-dna</v-icon>
-      <v-toolbar-title>
-        <span class="headline">DNA-Textübersetzer</span>
-      </v-toolbar-title>
+      <span class="headline">DNA-Textübersetzer</span>
     </v-app-bar>
-
     <v-container fluid>
-      <TranslationFields
-        :leftRightTranslation="dnaToText"
-        :rightLeftTranslation="textToDna"
-        :translationPairtable="dnaTextTablePairs"
-        leftLabel="DNA"
-        rightLabel="Text"
-      ></TranslationFields>
-      <TranslationFields
-        :leftRightTranslation="dnaToAmino"
-        :rightLeftTranslation="aminoToDna"
-        :translationPairtable="dnaAminoTablePairs"
-        leftLabel="DNA"
-        rightLabel="Aminosäuren"
-      ></TranslationFields>
-      <TranslationFields
-        :leftRightTranslation="dnaToRna"
-        :rightLeftTranslation="rnaToDna"
-        :translationPairtable="{ 1: { key: 'T', symbol: 'U' } }"
-        leftLabel="DNA"
-        rightLabel="RNA"
-      ></TranslationFields>
+      <v-textarea
+        rows="4"
+        @input="debounceDnaInput"
+        v-model="dna"
+        outlined
+        clearable
+        counter
+        label="DNA"
+        type="text"
+      >
+        <template v-slot:append-outer>
+          <v-tooltip left>
+            <template v-slot:activator="{ on }">
+              <v-btn fab color="green" dark small @click="loadSequence" v-on="on">
+                <v-icon>mdi-upload</v-icon>
+              </v-btn>
+            </template>
+            <span>DNA-Sequenz in das Hauptprogramm laden</span>
+          </v-tooltip>
+        </template>
+      </v-textarea>
+      <v-alert :value="alert" dense outlined type="error" transition="scale-transition">
+        Ungültige Eingabe - Bitte nur DNA bestehend aus den Basen
+        <strong>A, T, G, C</strong> eingeben.
+      </v-alert>
+      <v-textarea
+        rows="4"
+        @input="debounceRnaInput"
+        v-model="rna"
+        outlined
+        clearable
+        counter
+        label="RNA"
+        type="text"
+      >
+        <template v-slot:append-outer>
+          <TranslationTable
+            :translationPairTable="dnaRnaTablePairs"
+            label="DNA-RNA Transkriptionstabelle"
+          ></TranslationTable>
+        </template>
+      </v-textarea>
+      <v-textarea
+        rows="4"
+        @input="debounceAminoInput"
+        v-model="amino"
+        outlined
+        clearable
+        counter
+        label="Amino"
+        type="text"
+      >
+        <template v-slot:append-outer>
+          <TranslationTable
+            :translationPairTable="dnaAminoTablePairs"
+            label="DNA-Aminosäuren Translationstabelle"
+            information="Es gibt 64 mögliche Codons, davon sind 61 für für 20 Aminosäuren und drei als Stopsignale vorgesehen. Dadurch ist die
+        Zuweisung von Codon zu Aminosäure eindeutig, jedoch für fast alle Aminosäuren zum Codon nicht mehr."
+          ></TranslationTable>
+        </template>
+      </v-textarea>
+      <v-textarea
+        rows="4"
+        @input="debounceTextInput"
+        v-model="text"
+        outlined
+        clearable
+        counter
+        label="Text"
+        type="text"
+      >
+        <template v-slot:append-outer>
+          <TranslationTable
+            :translationPairTable="dnaTextTablePairs"
+            label="DNA-Text Translationstabelle"
+            information="Nicht alle Zeichen wie Großbuchstaben können aufgrund der Limitierung auf 64 mögliche Codons kodiert werden"
+          ></TranslationTable>
+        </template>
+      </v-textarea>
     </v-container>
   </v-card>
 </template>
 
 <script>
-import TranslationFields from "./TranslationFields";
 import {
   dnaToText,
   extractCodons,
@@ -43,11 +97,21 @@ import {
   dnaTextTable,
   codonTable
 } from "./../plugins/dnaConverter";
+import TranslationTable from "./TranslationTable";
 
+const debounce = require("lodash/debounce");
+const debounceDelay = 500;
 export default {
-  data: () => ({ textToDna: textToDna, dnaToText: dnaToText }),
+  data: () => ({
+    dna: "",
+    rna: "",
+    amino: "",
+    text: "",
+    alert: false,
+    dnaRnaTablePairs: { 1: { key: "T", symbol: "U" } }
+  }),
   components: {
-    TranslationFields
+    TranslationTable
   },
   methods: {
     dnaToAmino(dna) {
@@ -63,6 +127,7 @@ export default {
       ).join("-");
     },
     aminoToDna(aminos) {
+      aminos = aminos || "";
       const aminoDnaTable = {};
       Object.keys(codonTable).forEach(key => {
         aminoDnaTable[codonTable[key]] = key;
@@ -76,16 +141,47 @@ export default {
         .replace(/U/g, "T");
     },
     dnaToRna(dna) {
+      dna = dna || "";
       return dna
         .toUpperCase()
         .replace(/\s/g, "")
         .replace(/T/g, "U");
     },
     rnaToDna(rna) {
+      rna = rna || "";
+
       return rna
         .toUpperCase()
         .replace(/\s/g, "")
         .replace(/U/g, "T");
+    },
+    dnaToEverything() {
+      this.rna = this.dnaToRna(this.dna);
+      this.amino = this.dnaToAmino(this.dna);
+      this.text = dnaToText(this.dna);
+      this.alert = false;
+    },
+    debounceDnaInput: debounce(function() {
+      if (/^[atguc\s]+$/i.test(this.dna)) {
+        this.dnaToEverything();
+      } else {
+        this.alert = true;
+      }
+    }, debounceDelay),
+    debounceRnaInput: debounce(function() {
+      this.dna = this.rnaToDna(this.rna);
+      this.dnaToEverything();
+    }, debounceDelay),
+    debounceAminoInput: debounce(function() {
+      this.dna = this.aminoToDna(this.amino);
+      this.dnaToEverything();
+    }, debounceDelay),
+    debounceTextInput: debounce(function() {
+      this.dna = textToDna(this.text || "");
+      this.dnaToEverything();
+    }, debounceDelay),
+    loadSequence() {
+      this.$emit("loadDna", this.dna);
     }
   },
   computed: {

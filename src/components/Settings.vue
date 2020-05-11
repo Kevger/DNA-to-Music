@@ -4,9 +4,7 @@
       <v-col cols="12">
         <v-card>
           <v-card-title>Einstellungen</v-card-title>
-          <v-card-subtitle
-            >Einstellungen des hinzuzufügenden Algorithmus</v-card-subtitle
-          >
+          <v-card-subtitle>Einstellungen des hinzuzufügenden Algorithmus</v-card-subtitle>
 
           <v-row no-gutters>
             <v-col>
@@ -84,10 +82,10 @@
       <v-col cols="12">
         <v-card>
           <v-card-title>Steuerung</v-card-title>
-          <v-card-subtitle
-            >Steuerung aller aktiven Algorithmen. Hinzufügen weiterer durch das
-            Plussymbol.</v-card-subtitle
-          >
+          <v-card-subtitle>
+            Steuerung aller aktiven Algorithmen. Hinzufügen weiterer durch das
+            Plussymbol.
+          </v-card-subtitle>
           <v-container>
             <v-slider
               v-model="bpm"
@@ -99,6 +97,7 @@
               thumb-label
               outlined
             ></v-slider>
+
             <v-slider
               prepend-icon="mdi-volume-low"
               append-icon="mdi-volume-high"
@@ -109,24 +108,36 @@
               step="1"
               outlined
             ></v-slider>
+
             <v-divider></v-divider>
+
             <v-card-actions>
-              <v-btn color="green" fab @click="add">
-                <v-icon large>mdi-plus</v-icon>
-              </v-btn>
-              <v-btn
-                color="green"
-                :disabled="addedConfigsEmpty"
-                fab
-                @click="toggle"
-              >
-                <v-icon large>{{
+              <v-tooltip bottom>
+                <template #activator="{on: tooltip}">
+                  <v-btn color="green" fab @click="add" v-on="tooltip">
+                    <v-icon large>mdi-plus</v-icon>
+                  </v-btn>
+                </template>
+                <span>Algorithmus hinzufügen</span>
+              </v-tooltip>
+
+              <v-btn color="green" :disabled="addedConfigsEmpty" fab @click="toggle">
+                <v-icon large>
+                  {{
                   isPlaying ? "mdi-pause" : "mdi-play"
-                }}</v-icon>
+                  }}
+                </v-icon>
               </v-btn>
-              <v-btn color="green" fab @click="rewind">
-                <v-icon large>mdi-rewind</v-icon>
-              </v-btn>
+
+              <v-tooltip bottom>
+                <template #activator="{on: tooltip}">
+                  <v-btn color="green" fab @click="rewind" v-on="tooltip">
+                    <v-icon large>mdi-rewind</v-icon>
+                  </v-btn>
+                </template>
+                <span>Zurückspulen und Algorithmen neuladen</span>
+              </v-tooltip>
+
               <v-switch
                 dense
                 class="mx-4"
@@ -143,10 +154,10 @@
       <v-col cols="12">
         <v-card>
           <v-card-title>Aktive Algorithmen</v-card-title>
-          <v-card-subtitle
-            >Alle parallel ablaufende Algorithmen. Erst bei neuem Durchlauf
-            aktiv.</v-card-subtitle
-          >
+          <v-card-subtitle>
+            Alle parallel ablaufende Algorithmen. Erst bei neuem Durchlauf
+            aktiv.
+          </v-card-subtitle>
           <v-container>
             <v-chip
               color="yellow"
@@ -158,43 +169,29 @@
             >
               <strong>{{ conf.algorithm }}</strong>
               /{{ conf.synthesizer }}/{{
-                conf.algorithm != "Sprache"
-                  ? conf.noteValue
-                  : conf.specificConfig
+              conf.algorithm != "Sprache"
+              ? conf.noteValue
+              : conf.specificConfig
               }}/{{ conf.algorithm != "Sprache" ? conf.tempo + "/" : "" }}+sp{{
-                conf.startPosition
+              conf.startPosition
               }}
             </v-chip>
           </v-container>
         </v-card>
       </v-col>
     </v-row>
-    <v-snackbar
-      color="amber"
-      bottom
-      v-model="notificationSpeech"
-      :timeout="20000"
-    >
+    <v-snackbar color="amber" bottom v-model="notificationSpeech" :timeout="20000">
       Textsynthese ist nicht auf jedem Browser verfügbar oder nur für eine
       beschränkte Anzahl von Zeichen zulässig. Die Geschwindigkeit und
-      Lautstärke der Synthese lassen sich nicht im Nachhinein ändern.
-      <v-btn class="mx-4" @click="notificationSpeech = false" text
-        >Schließen</v-btn
-      >
+      Lautstärke der Synthese lassen sich nicht im Nachhinein ändern. Visualisierung der
+      Textsynthese nicht verfügbar.
+      <v-btn class="mx-4" @click="notificationSpeech = false" text>Schließen</v-btn>
     </v-snackbar>
-    <v-snackbar
-      color="amber"
-      multi-line
-      top
-      v-model="notificationPerformance"
-      :timeout="20000"
-    >
+    <v-snackbar color="amber" multi-line top v-model="notificationPerformance" :timeout="20000">
       Es kann zu Performanceeinbrüchen bei zu vielen parallel laufenden
       Algorithmen kommen. Zur Verbesserung die Visualisierung abschalten oder
       weniger Algorithmen laufen lassen.
-      <v-btn class="mx-4" @click="notificationPerformance = false" text
-        >Schließen</v-btn
-      >
+      <v-btn class="mx-4" @click="notificationPerformance = false" text>Schließen</v-btn>
     </v-snackbar>
   </v-container>
 </template>

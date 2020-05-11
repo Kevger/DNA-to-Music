@@ -165,7 +165,7 @@ export const interpretations = {
     const maxIndex = notes.length - 1;
 
     const synthPart = new Tone.Sequence(
-      function(time, note) {
+      function (time, note) {
         synth.triggerAttackRelease(note, config.noteValue, time);
         callback({
           base: dna.charAt(i),
@@ -216,7 +216,7 @@ export const interpretations = {
       let i = 0;
       const maxIndex = aminos.length - 1;
       const synthPart = new Tone.Sequence(
-        function(time, note) {
+        function (time, note) {
           const timing = notes[i + 1] ? speed : "2n";
           synth.triggerAttackRelease(note, timing, time);
           callback({
@@ -327,7 +327,7 @@ export const interpretations = {
     let i = 0;
     const maxIndex = notes.length - 1;
     const synthPart = new Tone.Sequence(
-      function(time, note) {
+      function (time, note) {
         synth.triggerAttackRelease(note, config.noteValue, time);
         callback({
           config: config,

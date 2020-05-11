@@ -16,14 +16,19 @@
               label="Beispielgene"
               @change="loadSampleDna"
             >Samples</v-select>
-            <v-text-field
-              class="mx-4"
-              label="NCBI Nukleotidsuche"
-              v-model="searchTerm"
-              @change="searchNCBI"
-              placeholder="HIV-1 Genome"
-            ></v-text-field>
-
+            <v-tooltip right>
+              <template #activator="{ on: tooltip }">
+                <v-text-field
+                  class="mx-4"
+                  label="NCBI Nukleotidsuche"
+                  v-model="searchTerm"
+                  @change="searchNCBI"
+                  placeholder="HIV-1 Genome"
+                  v-on="tooltip"
+                ></v-text-field>
+              </template>
+              <span>Nukleotidsequenzen im NCBI suchen</span>
+            </v-tooltip>
             <v-card-actions>
               <v-dialog max-width="800">
                 <template v-slot:activator="{ on }">
@@ -31,22 +36,10 @@
                     <v-icon>mdi-format-text-rotation-none</v-icon>DNA-Übersetzer
                   </v-btn>
                 </template>
-                <TranslationPopup></TranslationPopup>
+                <TranslationPopup @loadDna="loadDnaPopup"></TranslationPopup>
               </v-dialog>
             </v-card-actions>
           </v-container>
-          <v-alert
-            :value="alert"
-            dense
-            outlined
-            type="error"
-            dismissible
-            transition="scale-transition"
-            @input="closeAlert"
-          >
-            Falsche Eingabe - Bitte nur DNA bestehend aus den Basen
-            <strong>A, T, G, C, U</strong> eingeben.
-          </v-alert>
         </v-col>
         <v-col xs="12" sm="12" md="8" lg="8" xl="8">
           <v-textarea
@@ -60,6 +53,18 @@
             label="Basenabfolge"
             type="text"
           ></v-textarea>
+          <v-alert
+            :value="alert"
+            dense
+            outlined
+            type="error"
+            dismissible
+            transition="scale-transition"
+            @input="closeAlert"
+          >
+            Ungültige Eingabe - Bitte nur DNA bestehend aus den Basen
+            <strong>A, T, G, C, U</strong> eingeben.
+          </v-alert>
         </v-col>
       </v-row>
     </v-card>
@@ -94,6 +99,10 @@ export default {
     loadSampleDna() {
       this.dna = sampleGenes[this.selectedSample];
       this.updateDna();
+    },
+    loadDnaPopup(dna) {
+      this.dna = dna;
+      this.updateDna;
     },
     updateDna() {
       if (/^[atguc\s]+$/i.test(this.dna)) {

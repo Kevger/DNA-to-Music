@@ -124,11 +124,13 @@ export default {
       this.dna = dna;
       console.log("DNA updated");
     },
+
     onSettingsUpdate(settings) {
       setSettings(settings);
       this.algorithm = settings.algorithm;
       this.visualizationActive = settings.visualizationActive;
     },
+
     onAddedConfigsUpdate(addedConfigs) {
       this.addedConfigs = addedConfigs;
     },
@@ -139,11 +141,13 @@ export default {
       this.stopped = false;
       this.resetPlayer = !this.resetPlayer;
     },
+
     onPlayingUpdate(isPlaying) {
       const callback = information => {
         if (this.visualizationActive)
           this.$set(this.updateOuput, information.key, information);
       };
+      console.log("Algorithmen arbeiten...");
 
       if (isPlaying) {
         if (this.stopped) {
