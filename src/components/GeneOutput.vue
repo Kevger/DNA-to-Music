@@ -1,11 +1,12 @@
 <template>
   <v-container fluid>
-    <v-container FLUID>
-      <div id="svgId"></div>
-    </v-container>
     <v-divider></v-divider>
     <template v-for="field in createdFields">
-      <GeneOutputField :config="field.config" :svgId="field.svgId" :key="field.key"></GeneOutputField>
+      <GeneOutputField
+        :config="field.config"
+        :svgId="field.svgId"
+        :key="field.key"
+      ></GeneOutputField>
     </template>
   </v-container>
 </template>
@@ -24,20 +25,14 @@ export default {
   },
   data() {
     return {
-      cv: undefined,
       createdFields: []
     };
   },
-  mounted() {
-    this.cv = this.$svg(this.svgId);
-  },
-  destroyed() {
-    this.cv.clear();
-    this.cv.remove();
-  },
+  mounted() {},
   watch: {
     activeAlgorithms() {
       this.createdFields = [];
+      this.$forceUpdate();
       for (let i = 0; i < this.activeAlgorithms; ++i) {
         this.$set(this.createdFields, i, {
           key: i,

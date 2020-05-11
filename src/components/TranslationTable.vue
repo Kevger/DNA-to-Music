@@ -3,16 +3,16 @@
     <template #activator="{ on: dialog }">
       <v-tooltip left>
         <template #activator="{ on: tooltip }">
-          <v-btn fab color="green" dark small v-on="{...dialog,...tooltip}">
+          <v-btn fab color="green" dark small v-on="{ ...dialog, ...tooltip }">
             <v-icon>mdi-help</v-icon>
           </v-btn>
         </template>
-        <span>{{label}}</span>
+        <span>{{ label }}</span>
       </v-tooltip>
     </template>
     <v-card>
-      <v-card-title>{{label}}</v-card-title>
-      <v-card-text>{{information}}</v-card-text>
+      <v-card-title>{{ label }}</v-card-title>
+      <v-card-text>{{ information }}</v-card-text>
       <v-list rounded>
         <v-list-item-group>
           <v-list-item v-for="item in translationPairTable" :key="item.key">

@@ -5,9 +5,10 @@
         <v-col xs="12" sm="12" md="4" lg="4" xl="4">
           <v-container>
             <v-card-text>
-              Links die Basenabfolge (RNA oder DNA) eingeben, die anschließend
-              in Musik überführt werden soll. Gene bestehen ausschließlich aus
-              A,T,G,C Abfolgen. Virale RNA besitzt U anstatt T.
+              Basenabfolge (RNA oder DNA) eingeben oder aus Beispielen
+              auswählen, die anschließend in Musik überführt werden soll. Gene
+              bestehen ausschließlich aus A,T,G,C Abfolgen. Virale RNA besitzt U
+              anstatt T.
             </v-card-text>
             <v-select
               class="mx-4"
@@ -15,7 +16,8 @@
               :items="sampleGenesNames"
               label="Beispielgene"
               @change="loadSampleDna"
-            >Samples</v-select>
+              >Samples</v-select
+            >
             <v-tooltip right>
               <template #activator="{ on: tooltip }">
                 <v-text-field

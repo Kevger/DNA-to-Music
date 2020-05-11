@@ -4,7 +4,9 @@
       <v-col cols="12">
         <v-card>
           <v-card-title>Einstellungen</v-card-title>
-          <v-card-subtitle>Einstellungen des hinzuzufügenden Algorithmus</v-card-subtitle>
+          <v-card-subtitle
+            >Einstellungen des hinzuzufügenden Algorithmus</v-card-subtitle
+          >
 
           <v-row no-gutters>
             <v-col>
@@ -89,7 +91,7 @@
           <v-container>
             <v-slider
               v-model="bpm"
-              max="800"
+              max="400"
               min="10"
               step="1"
               label="BPM"
@@ -121,11 +123,14 @@
                 <span>Algorithmus hinzufügen</span>
               </v-tooltip>
 
-              <v-btn color="green" :disabled="addedConfigsEmpty" fab @click="toggle">
+              <v-btn
+                color="green"
+                :disabled="addedConfigsEmpty"
+                fab
+                @click="toggle"
+              >
                 <v-icon large>
-                  {{
-                  isPlaying ? "mdi-pause" : "mdi-play"
-                  }}
+                  {{ isPlaying ? "mdi-pause" : "mdi-play" }}
                 </v-icon>
               </v-btn>
 
@@ -169,29 +174,44 @@
             >
               <strong>{{ conf.algorithm }}</strong>
               /{{ conf.synthesizer }}/{{
-              conf.algorithm != "Sprache"
-              ? conf.noteValue
-              : conf.specificConfig
+                conf.algorithm != "Sprache"
+                  ? conf.noteValue
+                  : conf.specificConfig
               }}/{{ conf.algorithm != "Sprache" ? conf.tempo + "/" : "" }}+sp{{
-              conf.startPosition
+                conf.startPosition
               }}
             </v-chip>
           </v-container>
         </v-card>
       </v-col>
     </v-row>
-    <v-snackbar color="amber" bottom v-model="notificationSpeech" :timeout="20000">
+    <v-snackbar
+      color="amber"
+      bottom
+      v-model="notificationSpeech"
+      :timeout="20000"
+    >
       Textsynthese ist nicht auf jedem Browser verfügbar oder nur für eine
       beschränkte Anzahl von Zeichen zulässig. Die Geschwindigkeit und
-      Lautstärke der Synthese lassen sich nicht im Nachhinein ändern. Visualisierung der
-      Textsynthese nicht verfügbar.
-      <v-btn class="mx-4" @click="notificationSpeech = false" text>Schließen</v-btn>
+      Lautstärke der Synthese lassen sich nicht im Nachhinein ändern.
+      Visualisierung der Textsynthese nicht verfügbar.
+      <v-btn class="mx-4" @click="notificationSpeech = false" text
+        >Schließen</v-btn
+      >
     </v-snackbar>
-    <v-snackbar color="amber" multi-line top v-model="notificationPerformance" :timeout="20000">
+    <v-snackbar
+      color="amber"
+      multi-line
+      top
+      v-model="notificationPerformance"
+      :timeout="20000"
+    >
       Es kann zu Performanceeinbrüchen bei zu vielen parallel laufenden
       Algorithmen kommen. Zur Verbesserung die Visualisierung abschalten oder
       weniger Algorithmen laufen lassen.
-      <v-btn class="mx-4" @click="notificationPerformance = false" text>Schließen</v-btn>
+      <v-btn class="mx-4" @click="notificationPerformance = false" text
+        >Schließen</v-btn
+      >
     </v-snackbar>
   </v-container>
 </template>

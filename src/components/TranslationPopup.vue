@@ -18,7 +18,14 @@
         <template v-slot:append-outer>
           <v-tooltip left>
             <template v-slot:activator="{ on }">
-              <v-btn fab color="green" dark small @click="loadSequence" v-on="on">
+              <v-btn
+                fab
+                color="green"
+                dark
+                small
+                @click="loadSequence"
+                v-on="on"
+              >
                 <v-icon>mdi-upload</v-icon>
               </v-btn>
             </template>
@@ -26,7 +33,13 @@
           </v-tooltip>
         </template>
       </v-textarea>
-      <v-alert :value="alert" dense outlined type="error" transition="scale-transition">
+      <v-alert
+        :value="alert"
+        dense
+        outlined
+        type="error"
+        transition="scale-transition"
+      >
         Ungültige Eingabe - Bitte nur DNA bestehend aus den Basen
         <strong>A, T, G, C</strong> eingeben.
       </v-alert>
@@ -42,7 +55,7 @@
       >
         <template v-slot:append-outer>
           <TranslationTable
-            :translationPairTable="dnaRnaTablePairs"
+            :translation-pair-table="dnaRnaTablePairs"
             label="DNA-RNA Transkriptionstabelle"
           ></TranslationTable>
         </template>
@@ -59,7 +72,7 @@
       >
         <template v-slot:append-outer>
           <TranslationTable
-            :translationPairTable="dnaAminoTablePairs"
+            :translation-pair-table="dnaAminoTablePairs"
             label="DNA-Aminosäuren Translationstabelle"
             information="Es gibt 64 mögliche Codons, davon sind 61 für für 20 Aminosäuren und drei als Stopsignale vorgesehen. Dadurch ist die
         Zuweisung von Codon zu Aminosäure eindeutig, jedoch für fast alle Aminosäuren zum Codon nicht mehr."
@@ -78,7 +91,7 @@
       >
         <template v-slot:append-outer>
           <TranslationTable
-            :translationPairTable="dnaTextTablePairs"
+            :translation-pair-table="dnaTextTablePairs"
             label="DNA-Text Translationstabelle"
             information="Nicht alle Zeichen wie Großbuchstaben können aufgrund der Limitierung auf 64 mögliche Codons kodiert werden"
           ></TranslationTable>

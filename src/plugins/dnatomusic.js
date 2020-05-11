@@ -57,7 +57,7 @@ export function setSettings(settings) {
   Tone.Transport.bpm.value = settings.bpm;
   Tone.Master.volume.value = -25 + (settings.volume / 100) * 50;
   speechVolume = settings.volume / 100;
-  speechSpeed = (settings.bpm / 800) * 4;
+  speechSpeed = (settings.bpm / 400) * 4;
 }
 
 export function getVoices() {
@@ -149,9 +149,7 @@ export const interpretations = {
     }
   },
   Basen: (dna, config, callback) => {
-    const type = config.specificConfig;
     const synthesizer = config.synthesizer;
-    console.log(type);
     const noteList = {
       A: "A4",
       U: "D4",
@@ -165,17 +163,21 @@ export const interpretations = {
     const maxIndex = notes.length - 1;
 
     const synthPart = new Tone.Sequence(
-      function (time, note) {
+      function(time, note) {
         synth.triggerAttackRelease(note, config.noteValue, time);
-        callback({
-          base: dna.charAt(i),
-          note: note,
-          i: i,
-          maxIndex: maxIndex,
-          amino: "",
-          key: config.key
-        });
-        if (++i >= dna.length) i = 0;
+        Tone.Draw.schedule(() => {
+          //this callback is invoked from a requestAnimationFrame
+          //and will be invoked close to AudioContext time
+          callback({
+            base: dna.charAt(i),
+            note: note,
+            i: i,
+            maxIndex: maxIndex,
+            amino: "",
+            key: config.key
+          });
+          if (++i >= dna.length) i = 0;
+        }, time); //use AudioContext time of the event
       },
       notes,
       config.tempo
@@ -183,9 +185,7 @@ export const interpretations = {
     return synthPart;
   },
   Aminos: (dna, config, callback) => {
-    const type = config.specificConfig;
     const synthesizer = config.synthesizer;
-    console.log(type);
     const AA = {
       phe: "A1",
       leu: "A2",
@@ -216,31 +216,32 @@ export const interpretations = {
       let i = 0;
       const maxIndex = aminos.length - 1;
       const synthPart = new Tone.Sequence(
-        function (time, note) {
+        function(time, note) {
           const timing = notes[i + 1] ? speed : "2n";
           synth.triggerAttackRelease(note, timing, time);
-          callback({
-            note: note,
-            base: [...dna.slice(i * 3, i * 3 + 3)],
-            amino: aminos[i],
-            i: i,
-            maxIndex: maxIndex,
-            key: config.key
-          });
-          if (++i >= aminos.length) i = 0;
+          Tone.Draw.schedule(() => {
+            callback({
+              note: note,
+              base: [...dna.slice(i * 3, i * 3 + 3)],
+              amino: aminos[i],
+              i: i,
+              maxIndex: maxIndex,
+              key: config.key
+            });
+            if (++i >= aminos.length) i = 0;
+          }, time);
         },
         notes,
         config.tempo
       );
+
       return synthPart;
     };
 
     return sequenceCreator(synthesizer, dna, config.noteValue);
   },
   Codons: (dna, config, callback) => {
-    const type = config.specificConfig;
     const synthesizer = config.synthesizer;
-    console.log(type);
     const codonTable = {
       UUU: "A0",
       UUC: "A1",
@@ -327,17 +328,19 @@ export const interpretations = {
     let i = 0;
     const maxIndex = notes.length - 1;
     const synthPart = new Tone.Sequence(
-      function (time, note) {
+      function(time, note) {
         synth.triggerAttackRelease(note, config.noteValue, time);
-        callback({
-          config: config,
-          note: note,
-          base: [...dna.slice(i * 3, i * 3 + 3)],
-          i: i,
-          maxIndex: maxIndex,
-          key: config.key
-        });
-        if (++i >= notes.length) i = 0;
+        Tone.Draw.schedule(() => {
+          callback({
+            config: config,
+            note: note,
+            base: [...dna.slice(i * 3, i * 3 + 3)],
+            i: i,
+            maxIndex: maxIndex,
+            key: config.key
+          });
+          if (++i >= notes.length) i = 0;
+        }, time);
       },
       notes,
       config.tempo

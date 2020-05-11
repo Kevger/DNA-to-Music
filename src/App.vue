@@ -48,6 +48,14 @@
         </v-layout>
       </v-container>
     </v-dialog>
+    <v-dialog v-model="processing" fullscreen>
+      <v-container fluid fill-height style="background-color: rgba(255, 255, 255, 0.5);">
+        <v-layout justify-center align-center>
+          Algorithmen rechnen...
+          <v-progress-circular indeterminate color="primary"></v-progress-circular>
+        </v-layout>
+      </v-container>
+    </v-dialog>
 
     <v-footer color="green" class="font-weight-medium">
       <v-col class="text-center" cols="12">
@@ -97,10 +105,11 @@ export default {
       Basen: ["Keine"],
       Aminos: ["Keine"],
       Codons: ["Keine"],
-      Sprache: ["DNA", "Codon", "Amino", "Human", "Gedicht", "Drogenrap"]
+      Sprache: ["DNA", "Codon", "Amino", "Human", "Gedicht"]
     },
     addedConfigs: [],
-    loading: true
+    loading: true,
+    processing: false
   }),
   computed: {
     shownSynthesizers() {
@@ -118,6 +127,9 @@ export default {
       console.log("Loading instruments done...");
     };
     loadInstruments(loadingDoneCallback);
+  },
+  destroyed() {
+    resetMusic();
   },
   methods: {
     onDnaUpdate(dna) {
@@ -144,39 +156,47 @@ export default {
 
     onPlayingUpdate(isPlaying) {
       const callback = information => {
+        this.processing = false;
         if (this.visualizationActive)
           this.$set(this.updateOuput, information.key, information);
       };
-      console.log("Algorithmen arbeiten...");
 
-      if (isPlaying) {
-        if (this.stopped) {
-          startMusic();
-          this.stopped = false;
-        } else if (this.dna == "" || this.algorithm == "") {
-          console.log("Error no valid information");
-          this.onRewindUpdate();
+      console.log("Algorithmen arbeiten...");
+      this.processing = true;
+      this.$forceUpdate();
+      let onlySpeech = true;
+      this.addedConfigs.forEach(
+        c => (onlySpeech = c.algorithm != "Sprache" ? false : onlySpeech)
+      );
+      if (onlySpeech) this.processing = false;
+
+      setTimeout(() => {
+        if (isPlaying) {
+          if (this.stopped) {
+            startMusic();
+            this.stopped = false;
+          } else {
+            for (let i = 0; i < this.addedConfigs.length; ++i) this.update;
+            this.activeAlgorithms = 0;
+
+            const activeInstruments = this.addedConfigs.map(c =>
+              interpretations[c.algorithm](
+                this.dna.substr(c.startPosition),
+                c,
+                c.algorithm != "Sprache" ? callback : this.onRewindUpdate
+              )
+            );
+            activeInstruments.forEach(ai => ai.start());
+            this.updateOuput = Array(this.addedConfigs.length).fill({});
+            this.activeAlgorithms = this.addedConfigs.length;
+            startMusic();
+          }
         } else {
-          for (let i = 0; i < this.addedConfigs.length; ++i) this.update;
-          this.activeAlgorithms = 0;
-          const activeInstruments = this.addedConfigs.map(c =>
-            interpretations[c.algorithm](
-              this.dna.substr(c.startPosition),
-              c,
-              c.algorithm != "Sprache" ? callback : this.onRewindUpdate
-            )
-          );
-          activeInstruments.forEach(ai => ai.start());
-          this.updateOuput = Array(this.addedConfigs.length).fill({});
-          this.activeAlgorithms = this.addedConfigs.length;
-          startMusic();
-          console.log("Sound started!");
+          stopMusic();
+          this.stopped = true;
+          console.log("Sound stopped!");
         }
-      } else {
-        stopMusic();
-        this.stopped = true;
-        console.log("Sound stopped!");
-      }
+      }, 100);
     }
   }
 };
