@@ -129,9 +129,9 @@
                 fab
                 @click="toggle"
               >
-                <v-icon large>
-                  {{ isPlaying ? "mdi-pause" : "mdi-play" }}
-                </v-icon>
+                <v-icon large>{{
+                  isPlaying ? "mdi-pause" : "mdi-play"
+                }}</v-icon>
               </v-btn>
 
               <v-tooltip bottom>
@@ -226,7 +226,7 @@ export default {
       volume: 30,
       synthesizer: this.synthesizers[4],
       startPosition: 0,
-      specificConfig: this.specificConfigs[this.algorithms[0]][0],
+      specificConfig: this.specificConfigs[this.algorithms[1]][0],
       settings: {},
       addedConfigs: [],
       noteValue: this.noteValues[2],
@@ -257,7 +257,7 @@ export default {
       this.notificationPerformance = this.addedConfigs.length >= 4;
     },
     add() {
-      const maxConfigs = 10;
+      const maxConfigs = 30;
       if (this.addedConfigs.length < maxConfigs) {
         this.addedConfigs.push({
           algorithm: this.algorithm,

@@ -34,25 +34,42 @@
             />
           </v-col>
           <v-col xs="12" sm="12" md="8" lg="8" xl="8">
-            <GeneOutput :update="updateOuput" :activeAlgorithms="activeAlgorithms"></GeneOutput>
+            <GeneOutput
+              :update="updateOuput"
+              :activeAlgorithms="activeAlgorithms"
+            ></GeneOutput>
           </v-col>
         </v-row>
       </v-container>
     </v-content>
 
     <v-dialog v-model="loading" fullscreen>
-      <v-container fluid fill-height style="background-color: rgba(255, 255, 255, 0.5);">
+      <v-container
+        fluid
+        fill-height
+        style="background-color: rgba(255, 255, 255, 0.5);"
+      >
         <v-layout justify-center align-center>
           Lade Instrumente...
-          <v-progress-circular indeterminate color="primary"></v-progress-circular>
+          <v-progress-circular
+            indeterminate
+            color="primary"
+          ></v-progress-circular>
         </v-layout>
       </v-container>
     </v-dialog>
     <v-dialog v-model="processing" fullscreen>
-      <v-container fluid fill-height style="background-color: rgba(255, 255, 255, 0.5);">
+      <v-container
+        fluid
+        fill-height
+        style="background-color: rgba(255, 255, 255, 0.5);"
+      >
         <v-layout justify-center align-center>
           Algorithmen rechnen...
-          <v-progress-circular indeterminate color="primary"></v-progress-circular>
+          <v-progress-circular
+            indeterminate
+            color="primary"
+          ></v-progress-circular>
         </v-layout>
       </v-container>
     </v-dialog>
@@ -81,6 +98,7 @@ import {
   availableSynthesizers,
   loadInstruments
 } from "./plugins/dnatomusic";
+import { noteTableBases, noteTableAminos } from "./plugins/noteTables";
 
 export default {
   name: "App",
@@ -102,8 +120,8 @@ export default {
     synthesizers: availableSynthesizers,
     visualizationActive: true,
     specificConfigs: {
-      Basen: ["Keine"],
-      Aminos: ["Keine"],
+      Basen: Object.keys(noteTableBases),
+      Aminos: Object.keys(noteTableAminos),
       Codons: ["Keine"],
       Sprache: ["DNA", "Codon", "Amino", "Human", "Gedicht"]
     },
@@ -171,30 +189,36 @@ export default {
       if (onlySpeech) this.processing = false;
 
       setTimeout(() => {
-        if (isPlaying) {
-          if (this.stopped) {
-            startMusic();
-            this.stopped = false;
-          } else {
-            for (let i = 0; i < this.addedConfigs.length; ++i) this.update;
-            this.activeAlgorithms = 0;
+        try {
+          if (isPlaying) {
+            if (this.stopped) {
+              startMusic();
+              this.stopped = false;
+            } else {
+              for (let i = 0; i < this.addedConfigs.length; ++i) this.update;
+              this.activeAlgorithms = 0;
 
-            const activeInstruments = this.addedConfigs.map(c =>
-              interpretations[c.algorithm](
-                this.dna.substr(c.startPosition),
-                c,
-                c.algorithm != "Sprache" ? callback : this.onRewindUpdate
-              )
-            );
-            activeInstruments.forEach(ai => ai.start());
-            this.updateOuput = Array(this.addedConfigs.length).fill({});
-            this.activeAlgorithms = this.addedConfigs.length;
-            startMusic();
+              const activeInstruments = this.addedConfigs.map(c =>
+                interpretations[c.algorithm](
+                  this.dna.substr(c.startPosition),
+                  c,
+                  c.algorithm != "Sprache" ? callback : this.onRewindUpdate
+                )
+              );
+              activeInstruments.forEach(ai => ai.start());
+              this.updateOuput = Array(this.addedConfigs.length).fill({});
+              this.activeAlgorithms = this.addedConfigs.length;
+              startMusic();
+            }
+          } else {
+            stopMusic();
+            this.stopped = true;
+            console.log("Sound stopped!");
           }
-        } else {
-          stopMusic();
-          this.stopped = true;
-          console.log("Sound stopped!");
+        } catch (e) {
+          console.log("Error: " + e);
+          this.processing = false;
+          this.onRewindUpdate();
         }
       }, 100);
     }

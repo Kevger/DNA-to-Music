@@ -108,7 +108,10 @@ import {
   textToDna,
   getAminos,
   dnaTextTable,
-  codonTable
+  codonTable,
+  dnaToRna,
+  rnaToDna,
+  dnaRnaTable
 } from "./../plugins/dnaConverter";
 import TranslationTable from "./TranslationTable";
 
@@ -120,8 +123,7 @@ export default {
     rna: "",
     amino: "",
     text: "",
-    alert: false,
-    dnaRnaTablePairs: { 1: { key: "T", symbol: "U" } }
+    alert: false
   }),
   components: {
     TranslationTable
@@ -154,19 +156,10 @@ export default {
         .replace(/U/g, "T");
     },
     dnaToRna(dna) {
-      dna = dna || "";
-      return dna
-        .toUpperCase()
-        .replace(/\s/g, "")
-        .replace(/T/g, "U");
+      return dnaToRna(dna || "");
     },
     rnaToDna(rna) {
-      rna = rna || "";
-
-      return rna
-        .toUpperCase()
-        .replace(/\s/g, "")
-        .replace(/U/g, "T");
+      return rnaToDna(rna || "");
     },
     dnaToEverything() {
       this.rna = this.dnaToRna(this.dna);
@@ -218,6 +211,17 @@ export default {
         pairTable[i++] = {
           key: codon,
           symbol: codonTable[codon]
+        };
+      });
+      return pairTable;
+    },
+    dnaRnaTablePairs() {
+      const pairTable = {};
+      let i = 1;
+      Object.keys(dnaRnaTable).forEach(codon => {
+        pairTable[i++] = {
+          key: codon,
+          symbol: dnaRnaTable[codon]
         };
       });
       return pairTable;

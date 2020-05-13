@@ -22,6 +22,19 @@ const AA = {
   stp: "stp"
 };
 
+export const dnaRnaTable = {
+  A: "U",
+  T: "A",
+  G: "C",
+  C: "G"
+};
+
+export const rnaDnaTable = {
+  U: "A",
+  A: "T",
+  C: "G",
+  G: "C"
+};
 export const AANames = {
   phe: "Phenylalanin",
   leu: "Leucin",
@@ -325,4 +338,42 @@ export function textToDna(text) {
     .map(b => textDnaTable[b])
     .join("")
     .replace(/U/g, "T");
+}
+
+export function trimStartStopSequences(dna) {
+  let rna;
+  if (dna.toUpperCase().search("U") >= 0) rna = dna;
+  else rna = dnaToRna(dna);
+
+  let newRna = "";
+  let startIndex = rna.indexOf("AUG");
+
+  while (startIndex > 0) {
+    rna = rna.substr(startIndex);
+    let stopIndex;
+    for (let i = 0; i <= rna.length - 3; i += 3) {
+      const codon = codonTable[rna.slice(i, i + 3)];
+      if (codon == "UAA" || codon == "UAG" || codon == "UGA") {
+        stopIndex = i;
+        break;
+      }
+    }
+    stopIndex = stopIndex || rna.length;
+    newRna += rna.substr(0, stopIndex);
+    rna = rna.slice(stopIndex);
+    startIndex = rna.indexOf("AUG");
+  }
+  return newRna.replace(/U/g, "T");
+}
+
+export function dnaToRna(dna) {
+  return [...dna.toUpperCase().replace(/\s/g, "")]
+    .map(b => dnaRnaTable[b])
+    .join("");
+}
+
+export function rnaToDna(rna) {
+  return [...rna.toUpperCase().replace(/\s/g, "")]
+    .map(b => rnaDnaTable[b])
+    .join("");
 }

@@ -76,6 +76,8 @@
 <script>
 import { sampleGenes } from "./../plugins/sampleGenes";
 import TranslationPopup from "./TranslationPopup";
+import { dnaToRna } from "../plugins/dnaConverter";
+
 const debounce = require("lodash/debounce");
 
 export default {
@@ -109,7 +111,7 @@ export default {
     updateDna() {
       if (/^[atguc\s]+$/i.test(this.dna)) {
         this.dna = this.dna.replace(/\s/g, "").toUpperCase();
-        this.$emit("dnaUpdated", this.dna.replace(/T/g, "U"));
+        this.$emit("dnaUpdated", dnaToRna(this.dna));
         this.alert = false;
       } else {
         this.alert = true;

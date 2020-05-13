@@ -3,10 +3,15 @@ import {
   getAminos,
   dnaToText,
   AANames,
-  dnaLyricTable,
-  dnaDrogenRapLyric
+  dnaLyricTable
 } from "./dnaConverter";
 import { SampleLibrary } from "./Tonejs-Instruments";
+import {
+  noteTableBases,
+  noteTableAminos,
+  createRandomNoteTable
+} from "./noteTables";
+
 const Tone = require("tone");
 
 export const usedInstruments = [
@@ -123,9 +128,6 @@ export const interpretations = {
       case "Gedicht":
         text = dnaToText(dna, dnaLyricTable);
         break;
-      case "Drogenrap":
-        text = dnaToText(dna, dnaDrogenRapLyric);
-        break;
       default:
         console.log("unknown synthesizer");
         callbackEnd();
@@ -150,12 +152,12 @@ export const interpretations = {
   },
   Basen: (dna, config, callback) => {
     const synthesizer = config.synthesizer;
-    const noteList = {
-      A: "A4",
-      U: "D4",
-      G: "G4",
-      C: "C4"
-    };
+    let noteList;
+    if ("random" == config.specificConfig) {
+      noteList = createRandomNoteTable(["A", "U", "G", "C"]);
+    } else {
+      noteList = noteTableBases[config.specificConfig];
+    }
 
     const notes = [...dna].map(base => noteList[base]);
     const synth = createSynth(synthesizer);
@@ -166,8 +168,6 @@ export const interpretations = {
       function(time, note) {
         synth.triggerAttackRelease(note, config.noteValue, time);
         Tone.Draw.schedule(() => {
-          //this callback is invoked from a requestAnimationFrame
-          //and will be invoked close to AudioContext time
           callback({
             base: dna.charAt(i),
             note: note,
@@ -177,7 +177,7 @@ export const interpretations = {
             key: config.key
           });
           if (++i >= dna.length) i = 0;
-        }, time); //use AudioContext time of the event
+        }, time);
       },
       notes,
       config.tempo
@@ -186,39 +186,21 @@ export const interpretations = {
   },
   Aminos: (dna, config, callback) => {
     const synthesizer = config.synthesizer;
-    const AA = {
-      phe: "A1",
-      leu: "A2",
-      ser: "A3",
-      tyr: "A4",
-      cys: "C1",
-      trp: "C2",
-      pro: "C3",
-      his: "C4",
-      gln: "D1",
-      arg: "D2",
-      ile: "D3",
-      thr: "D4",
-      asn: "G1",
-      lys: "G2",
-      val: "G3",
-      ala: "G4",
-      asp: "F1",
-      glu: "F2",
-      met: "F3",
-      gly: null,
-      stp: "A0"
-    };
+    let noteList;
+    if ("random" == config.specificConfig) {
+      noteList = createRandomNoteTable(Object.keys(noteTableAminos[1]));
+    } else {
+      noteList = noteTableAminos[config.specificConfig];
+    }
     const sequenceCreator = (synthesizer, dna, speed) => {
       const aminos = getAminos(extractCodons(dna, 3, 3));
-      const notes = aminos.map(a => AA[a]);
+      const notes = aminos.map(a => noteList[a]);
       const synth = createSynth(synthesizer);
       let i = 0;
       const maxIndex = aminos.length - 1;
       const synthPart = new Tone.Sequence(
         function(time, note) {
-          const timing = notes[i + 1] ? speed : "2n";
-          synth.triggerAttackRelease(note, timing, time);
+          synth.triggerAttackRelease(note, speed, time);
           Tone.Draw.schedule(() => {
             callback({
               note: note,
