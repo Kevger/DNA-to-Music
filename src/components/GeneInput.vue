@@ -40,6 +40,10 @@
                 </template>
                 <TranslationPopup @loadDna="loadDnaPopup"></TranslationPopup>
               </v-dialog>
+              <v-spacer></v-spacer>
+              <v-btn fab color="green" dark small @click="openHelp">
+                <v-icon>mdi-help</v-icon>
+              </v-btn>
             </v-card-actions>
           </v-container>
         </v-col>
@@ -99,6 +103,9 @@ export default {
       const url =
         "https://www.ncbi.nlm.nih.gov/nuccore/?term=" + this.searchTerm;
       window.open(url);
+    },
+    openHelp() {
+      this.$emit("openHelp");
     },
     loadSampleDna() {
       this.dna = sampleGenes[this.selectedSample];

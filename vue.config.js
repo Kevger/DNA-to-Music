@@ -1,3 +1,11 @@
 module.exports = {
-  transpileDependencies: ["vuetify"]
+  transpileDependencies: ["vuetify"],
+
+  pwa: {
+    name: "DNA-Synthesizer",
+    msTileColor: "#7ED321",
+    manifestOptions: {
+      background_color: "#7ED321"
+    }
+  }
 };

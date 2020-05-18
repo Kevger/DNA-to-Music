@@ -2,11 +2,15 @@
   <v-app>
     <v-app-bar color="green" dark app>
       <v-icon x-large>mdi-dna</v-icon>DNA Synthesizer - Future Of Making 2
+      <v-spacer></v-spacer>
+      <v-btn color="green" dark small @click="explainingWhy = true"
+        >Über dieses Projekt</v-btn
+      >
     </v-app-bar>
 
     <v-content>
       <v-container>
-        <GeneInput @dnaUpdated="onDnaUpdate" />
+        <GeneInput @dnaUpdated="onDnaUpdate" @openHelp="explaining = true" />
         <v-row no-gutters>
           <v-col xs="12" sm="12" md="4" lg="4" xl="4">
             <Settings
@@ -58,6 +62,14 @@
         </v-layout>
       </v-container>
     </v-dialog>
+    <v-dialog v-model="explaining" fullscreen>
+      <ExplanationGeneral
+        @windowClosed="explaining = false"
+      ></ExplanationGeneral>
+    </v-dialog>
+    <v-dialog v-model="explainingWhy" fullscreen>
+      <ExplanationWhy @windowClosed="explainingWhy = false"></ExplanationWhy>
+    </v-dialog>
     <v-dialog v-model="processing" fullscreen>
       <v-container
         fluid
@@ -87,7 +99,8 @@
 import GeneInput from "./components/GeneInput";
 import Settings from "./components/Settings";
 import GeneOutput from "./components/GeneOutput";
-
+import ExplanationGeneral from "./components/ExplanationGeneral";
+import ExplanationWhy from "./components/ExplanationWhy";
 import {
   interpretations,
   startMusic,
@@ -106,7 +119,9 @@ export default {
   components: {
     GeneInput,
     Settings,
-    GeneOutput
+    GeneOutput,
+    ExplanationGeneral,
+    ExplanationWhy
   },
 
   data: () => ({
@@ -127,7 +142,9 @@ export default {
     },
     addedConfigs: [],
     loading: true,
-    processing: false
+    processing: false,
+    explaining: true,
+    explainingWhy: false
   }),
   computed: {
     shownSynthesizers() {
@@ -205,7 +222,8 @@ export default {
                   c.algorithm != "Sprache" ? callback : this.onRewindUpdate
                 )
               );
-              activeInstruments.forEach(ai => ai.start());
+              for (let i = 0; i < activeInstruments.length; ++i)
+                activeInstruments[i].start(this.addedConfigs[i].startDelay);
               this.updateOuput = Array(this.addedConfigs.length).fill({});
               this.activeAlgorithms = this.addedConfigs.length;
               startMusic();

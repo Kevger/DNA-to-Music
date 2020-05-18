@@ -29,6 +29,11 @@
                 outlined
               ></v-select>
             </v-col>
+            <v-col cols="1">
+              <v-btn fab color="green" dark small @click="explaining = true">
+                <v-icon>mdi-help</v-icon>
+              </v-btn>
+            </v-col>
           </v-row>
           <v-row no-gutters>
             <v-col>
@@ -77,6 +82,17 @@
                 outlined
               ></v-select>
             </v-col>
+            <v-col>
+              <v-select
+                :disabled="isSpeech"
+                v-model="startDelay"
+                class="mx-4"
+                :items="noteValues"
+                label="Verzögerung"
+                dense
+                outlined
+              ></v-select>
+            </v-col>
           </v-row>
         </v-card>
       </v-col>
@@ -92,7 +108,7 @@
             <v-slider
               v-model="bpm"
               max="400"
-              min="10"
+              min="1"
               step="1"
               label="BPM"
               append-icon="mdi-metronome"
@@ -129,9 +145,9 @@
                 fab
                 @click="toggle"
               >
-                <v-icon large>{{
-                  isPlaying ? "mdi-pause" : "mdi-play"
-                }}</v-icon>
+                <v-icon large>
+                  {{ isPlaying ? "mdi-pause" : "mdi-play" }}
+                </v-icon>
               </v-btn>
 
               <v-tooltip bottom>
@@ -213,11 +229,21 @@
         >Schließen</v-btn
       >
     </v-snackbar>
+    <v-dialog v-model="explaining" fullscreen>
+      <ExplanationSettings
+        @windowClosed="explaining = false"
+      ></ExplanationSettings>
+    </v-dialog>
   </v-container>
 </template>
 
 <script>
+import ExplanationSettings from "./ExplanationSettings";
 export default {
+  components: {
+    ExplanationSettings
+  },
+
   data() {
     return {
       bpm: 70,
@@ -234,7 +260,9 @@ export default {
       notificationSpeech: false,
       notificationPerformance: false,
       uniqueKeyIndex: 0,
-      visualizationActive: true
+      visualizationActive: true,
+      startDelay: this.noteValues[0],
+      explaining: false
     };
   },
   props: {
@@ -267,7 +295,8 @@ export default {
           noteValue: this.noteValue,
           startPosition: this.startPosition,
           tempo: this.tempo,
-          uniqueKey: this.uniqueKeyIndex++
+          uniqueKey: this.uniqueKeyIndex++,
+          startDelay: this.startDelay
         });
         this.updateAddedConfigs();
       } else {
@@ -332,6 +361,9 @@ export default {
       this.updateSettings();
     },
     visualizationActive() {
+      this.updateSettings();
+    },
+    startDelay() {
       this.updateSettings();
     }
   }
