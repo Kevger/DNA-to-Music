@@ -3,33 +3,33 @@
     <v-row>
       <v-col cols="12">
         <v-card>
-          <v-card-title>Einstellungen</v-card-title>
+          <v-card-title>Settings</v-card-title>
           <v-card-subtitle
-            >Einstellungen des hinzuzufügenden Algorithmus</v-card-subtitle
+            >Settings of the algorithm to be added</v-card-subtitle
           >
 
           <v-row no-gutters>
-            <v-col>
+            <v-col cols="5">
               <v-select
                 v-model="algorithm"
                 class="mx-4"
                 :items="algorithms"
-                label="Algorithmus"
+                label="Algorithm"
                 dense
                 outlined
               ></v-select>
             </v-col>
-            <v-col>
+            <v-col cols="5">
               <v-select
                 v-model="specificConfig"
                 class="mx-4"
                 :items="shownSpecificConfigs"
-                label="Spezifisch"
+                label="Specific"
                 dense
                 outlined
               ></v-select>
             </v-col>
-            <v-col cols="1">
+            <v-col cols="2">
               <v-btn fab color="green" dark small @click="explaining = true">
                 <v-icon>mdi-help</v-icon>
               </v-btn>
@@ -52,7 +52,7 @@
                 class="mx-4"
                 value="0"
                 type="number"
-                label="Startposition"
+                label="Starting position"
                 dense
                 outlined
               ></v-text-field>
@@ -66,7 +66,7 @@
                 v-model="noteValue"
                 class="mx-4"
                 :items="noteValues"
-                label="Grundnotenwert"
+                label="Base note value"
                 dense
                 outlined
               ></v-select>
@@ -88,7 +88,7 @@
                 v-model="startDelay"
                 class="mx-4"
                 :items="noteValues"
-                label="Verzögerung"
+                label="Delay"
                 dense
                 outlined
               ></v-select>
@@ -101,8 +101,7 @@
         <v-card>
           <v-card-title>Steuerung</v-card-title>
           <v-card-subtitle>
-            Steuerung aller aktiven Algorithmen. Hinzufügen weiterer durch das
-            Plussymbol.
+            Control of all active algorithms. Add more using the plus symbol.
           </v-card-subtitle>
           <v-container>
             <v-slider
@@ -136,7 +135,7 @@
                     <v-icon large>mdi-plus</v-icon>
                   </v-btn>
                 </template>
-                <span>Algorithmus hinzufügen</span>
+                <span>Add Algorithm</span>
               </v-tooltip>
 
               <v-btn
@@ -145,9 +144,9 @@
                 fab
                 @click="toggle"
               >
-                <v-icon large>
-                  {{ isPlaying ? "mdi-pause" : "mdi-play" }}
-                </v-icon>
+                <v-icon large>{{
+                  isPlaying ? "mdi-pause" : "mdi-play"
+                }}</v-icon>
               </v-btn>
 
               <v-tooltip bottom>
@@ -156,16 +155,16 @@
                     <v-icon large>mdi-rewind</v-icon>
                   </v-btn>
                 </template>
-                <span>Zurückspulen und Algorithmen neuladen</span>
+                <span>Rewind and reload algorithms</span>
               </v-tooltip>
 
               <v-switch
                 dense
                 class="mx-4"
                 persistent-hint
-                hint="Die Deaktivierung der Visualisierung kann Leistungssteigerungen erwirken"
+                hint="Disabling the visualization can increase performance"
                 v-model="visualizationActive"
-                label="Visualisierung"
+                label="Visualization"
               ></v-switch>
             </v-card-actions>
           </v-container>
@@ -174,10 +173,9 @@
 
       <v-col cols="12">
         <v-card>
-          <v-card-title>Aktive Algorithmen</v-card-title>
+          <v-card-title>Active Algorithms</v-card-title>
           <v-card-subtitle>
-            Alle parallel ablaufende Algorithmen. Erst bei neuem Durchlauf
-            aktiv.
+            All parallel running algorithms. Only after a new run. activated.
           </v-card-subtitle>
           <v-container>
             <v-chip
@@ -207,10 +205,9 @@
       v-model="notificationSpeech"
       :timeout="20000"
     >
-      Textsynthese ist nicht auf jedem Browser verfügbar oder nur für eine
-      beschränkte Anzahl von Zeichen zulässig. Die Geschwindigkeit und
-      Lautstärke der Synthese lassen sich nicht im Nachhinein ändern.
-      Visualisierung der Textsynthese nicht verfügbar.
+      Text synthesis is not available on every browser or only allowed for a
+      limited number of characters. The speed and volume of the synthesis cannot
+      be changed afterwards. Visualization of text synthesis not available.
       <v-btn class="mx-4" @click="notificationSpeech = false" text
         >Schließen</v-btn
       >
@@ -222,9 +219,9 @@
       v-model="notificationPerformance"
       :timeout="20000"
     >
-      Es kann zu Performanceeinbrüchen bei zu vielen parallel laufenden
-      Algorithmen kommen. Zur Verbesserung die Visualisierung abschalten oder
-      weniger Algorithmen laufen lassen.
+      Performance may be degraded if too many algorithms are running in
+      parallel. To improve performance, switch off the visualization, run fewer
+      algorithms or cut the length of the sequence.
       <v-btn class="mx-4" @click="notificationPerformance = false" text
         >Schließen</v-btn
       >

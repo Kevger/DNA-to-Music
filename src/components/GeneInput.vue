@@ -4,17 +4,16 @@
       <v-row dense>
         <v-col xs="12" sm="12" md="4" lg="4" xl="4">
           <v-container>
-            <v-card-text>
-              Basenabfolge (RNA oder DNA) eingeben oder aus Beispielen
-              auswählen, die anschließend in Musik überführt werden soll. Gene
-              bestehen ausschließlich aus A,T,G,C Abfolgen. Virale RNA besitzt U
-              anstatt T.
-            </v-card-text>
+            <v-card-text
+              >Enter the base sequence (RNA or DNA) or select from the samples,
+              which is then converted into music. Genes consist exclusively of
+              A,T,G,C sequences. Viral RNA has U instead of T.</v-card-text
+            >
             <v-select
               class="mx-4"
               v-model="selectedSample"
               :items="sampleGenesNames"
-              label="Beispielgene"
+              label="Gene samples"
               @change="loadSampleDna"
               >Samples</v-select
             >
@@ -22,14 +21,14 @@
               <template #activator="{ on: tooltip }">
                 <v-text-field
                   class="mx-4"
-                  label="NCBI Nukleotidsuche"
+                  label="NCBI Nucleotide search"
                   v-model="searchTerm"
                   @change="searchNCBI"
                   placeholder="HIV-1 Genome"
                   v-on="tooltip"
                 ></v-text-field>
               </template>
-              <span>Nukleotidsequenzen im NCBI suchen</span>
+              <span>Search nucleotide sequences in NCBI</span>
             </v-tooltip>
             <v-card-actions>
               <v-dialog max-width="800">
@@ -56,7 +55,7 @@
             outlined
             rows="11"
             counter
-            label="Basenabfolge"
+            label="Base sequence"
             type="text"
           ></v-textarea>
           <v-alert
@@ -68,8 +67,8 @@
             transition="scale-transition"
             @input="closeAlert"
           >
-            Ungültige Eingabe - Bitte nur DNA bestehend aus den Basen
-            <strong>A, T, G, C, U</strong> eingeben.
+            Invalid entry - Please enter only DNA consisting of the bases
+            <strong>A, T, G, C, U</strong>.
           </v-alert>
         </v-col>
       </v-row>

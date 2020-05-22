@@ -10,36 +10,37 @@
         <v-col cols="12">
           <v-card>
             <v-card-title>Synthesizer / Instrument</v-card-title>
-            <v-card-text>
-              Bestimmt welcher Synthesizer oder Instrument für den spezifischen
-              Algorithmus genutzt werden soll. In der Sprachsynthese wird die
-              hier die Stimme gewählt.
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12">
-          <v-card>
-            <v-card-title>Tonleiter</v-card-title>
-            <v-card-text>Platzhalter</v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12">
-          <v-card>
-            <v-card-title>Startposition</v-card-title>
-            <v-card-text>
-              Bestimmt ab welcher Position der Algorithmus in der DNA zu lesen
-              anfangen soll. Eine Veränderung der Startposition um eine einzige
-              Base, führt bei den Codons und somit bei den Noten zu völlig
-              anderen Ergebnissen.
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col cols="12">
-          <v-card>
-            <v-card-title>Grundnotenwert</v-card-title>
             <v-card-text
-              >Gibt die Dauer der einzelnen Noten an. Eine viertel Note wird
-              beispielsweise halb so lange gespielt wie eine halbe.</v-card-text
+              >Determines which synthesizer or instrument should be used for the
+              specific algorithm. In speech synthesis, this determines the
+              voice.</v-card-text
+            >
+          </v-card>
+        </v-col>
+        <v-col cols="12">
+          <v-card>
+            <v-card-title>Scale</v-card-title>
+            <v-card-text>Placeholder</v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="12">
+          <v-card>
+            <v-card-title>Starting position</v-card-title>
+            <v-card-text
+              >Determines from which position in the DNA the algorithm should
+              start reading. A change of the start position by a single base
+              leads to completely different results for codons and thus for
+              notes.</v-card-text
+            >
+          </v-card>
+        </v-col>
+        <v-col cols="12">
+          <v-card>
+            <v-card-title>Base note value</v-card-title>
+            <v-card-text
+              >Specifies the duration of the individual notes. For example, a
+              quarter note is played for half the length of a half
+              note.</v-card-text
             >
           </v-card>
         </v-col>
@@ -47,22 +48,21 @@
           <v-card>
             <v-card-title>Tempo</v-card-title>
             <v-card-text>
-              Gibt das Tempo an, mit dem die Noten gelesen und gespielt werden.
-              Eine Tempo von einem Sechzehntel spielt doppelt so schnell wie ein
-              Achtel. Wenn der Grundnotenwert langsamer ist als das Tempo, dann
-              überlappen sich die einzelnen Noten. Mit dem Tempo lassen sich
-              Instrumente untereinander koordinieren
+              Specifies the tempo at which the notes are read and played. A
+              tempo of a sixteenth note plays twice as fast as an eighth note.
+              If the base note value is slower than the tempo, the individual
+              notes overlap. Tempo is used to coordinate instruments with each
+              other.
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="12">
           <v-card>
-            <v-card-title>Verzögerung</v-card-title>
+            <v-card-title>Delay</v-card-title>
             <v-card-text>
-              Damit lassen sich die Instrumente zeitverzögert nacheinander
-              starten. So kann beispielsweise ein Instrument genau so
-              eingestellt werden, dass es immer in den Pausen des anderen
-              spielt.
+              This allows the instruments to be started one after the other with
+              a time delay. This way, for example, one instrument can be set to
+              always play during the pauses of the other.
             </v-card-text>
           </v-card>
         </v-col>

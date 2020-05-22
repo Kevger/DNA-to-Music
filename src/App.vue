@@ -4,7 +4,7 @@
       <v-icon x-large>mdi-dna</v-icon>DNA Synthesizer - Future Of Making 2
       <v-spacer></v-spacer>
       <v-btn color="green" dark small @click="explainingWhy = true"
-        >Über dieses Projekt</v-btn
+        >About</v-btn
       >
     </v-app-bar>
 
@@ -54,7 +54,7 @@
         style="background-color: rgba(255, 255, 255, 0.5);"
       >
         <v-layout justify-center align-center>
-          Lade Instrumente...
+          Loading instruments...
           <v-progress-circular
             indeterminate
             color="primary"
@@ -77,7 +77,7 @@
         style="background-color: rgba(255, 255, 255, 0.5);"
       >
         <v-layout justify-center align-center>
-          Algorithmen rechnen...
+          Algorithms are calculating...
           <v-progress-circular
             indeterminate
             color="primary"

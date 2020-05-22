@@ -6,162 +6,150 @@
         <span class="headline">Über dieses Projekt</span>
       </v-app-bar>
       <v-container>
-        <v-card-title>Allgemein</v-card-title>
+        <v-card-title>General</v-card-title>
         <v-card-text>
           <p>
-            Was ist der Mensch? Eine Frage die noch bevor Immanuel Kant sie in
-            seiner Vorlesung über Logik stellte [1, S. 25], unzählige Antworten
-            vom zõon lógon échon und zõon politikón, dem vernünftigen und
-            politischen Tier bis zum Abbild Gottes besaß, ist heute 239 Jahre
-            später in Zeiten von Physik, Genetik, Psychologie, Biotechnologie,
-            künstlicher Intelligenz und vor allem dem voranschreitenden
-            materiellen Reduktionismus aktueller denn je.
+            What is man? A question which, even before Immanuel Kant posed it in
+            his lecture on logic [1, p. 25], had countless answers from zõon
+            lógon échon and zõon politikón, the rational and political animal to
+            the image of God, is today, 239 years later in times of physics,
+            genetics, psychology, biotechnology, artificial intelligence and
+            above all the advancing material reductionism, more relevant than
+            ever.
           </p>
           <p>
-            Kant selbst beantwortete diese Frage in seiner Pädagogik, ganz im
-            Stil der Aufklärung, aufbauend auf John Lockes Auffassung des
-            Menschen als einer Tabula Rasa [2, Buch 2 Kap. 1 § 2], mit der „[…]
-            Mensch kann nur Mensch werden durch Erziehung. Er ist nichts, als
-            was die Erziehung aus ihm macht“ [3, S. 11]. Damit hat Kant bereits
-            etwa hundert Jahre vor Hippolyte Taine Teile der Milieutheorie, die
-            Aussage, dass die Entwicklung des Menschen von der Umwelt abhängt
-            [4], vorweggenommen.
+            Kant himself answered this question in his pedagogy, entirely in the
+            style of the Enlightenment, building on John Locke's view of man as
+            a tabula rasa [2, book 2 chap. 1 § 2], with the "[...] Man can only
+            become man through education. He is nothing but what education makes
+            him" [3, p. 11]. With this, Kant already anticipated parts of the
+            milieu theory, the statement that the development of man depends on
+            the environment, about one hundred years before Hippolyte Taine [4].
           </p>
           <p>
-            1913 wurde die Milieutheorie ins Extreme mit dem Behaviorismus von
-            J.B. Watson gesteigert, dass ausschließlich die Umwelt den Menschen
-            samt seinem Gefühlsleben ausmacht. Eine Selbstbeobachtung gibt es
-            nicht, er reagiere nach einem Reiz-Reaktions Schema [5], der Mensch
-            sei ganz und gar Produkt seiner Umwelt.
+            In 1913, the milieu theory was taken to extremes with the
+            behaviorism of J.B. Watson, who argued that the environment is the
+            only thing that makes up a person, including his emotional life.
+            There is no such thing as self-observation, he reacts according to a
+            stimulus-response scheme [5], the human being is entirely a product
+            of his environment.
           </p>
           <p>
-            Zehn Jahre später reduzierte Sigmund Freud, nachdem er bereits zuvor
-            mit der Psychoanalyse, samt Selbstbeobachtung, das Unterbewusstsein
-            als Triebfeder unseres Handelns festgelegt hat, in Das Ich und das
-            Es, den Menschen auf einen Apparat [6].
+            Ten years later, after having previously used psychoanalysis,
+            including self-observation, to define the subconscious as the
+            driving force behind our actions, Sigmund Freud reduced the human
+            being to an apparatus in The Ego and the Id [6].
           </p>
           <p>
-            Bereits Jahre zuvor wurde mit der Verleihung des Nobelpreises 1906
-            an Camillo Golgi und Santiago Ramon y Cajal für die Erforschung der
-            Struktur des Nervensystems [7] ein Grundstein der heutigen
-            Neurowissenschaften und der damit einhergehenden Reduzierung des
-            Menschen, auf seine bloßen quantitativ messbaren
-            Neuronenaktivitäten, gelegt. Führte bereits der Behaviorismus,
-            zuerst durch die von der Konditionierung bis hin zum Nudging zu
-            Erfolgen den Menschen gezielt zu manipulieren,so versprechen
-            heutzutage die Neurowissenschaften und Informatik weitaus
-            tiefgreifendere Möglichkeiten, den Menschen zu einem Pawlowschen
-            Hund zu reduzieren [8, 9].
+            Years earlier, with the Nobel Prize 1906 awarded to Camillo Golgi
+            and Santiago Ramon y Cajal for their research into the structure of
+            the nervous system [7], a foundation stone was laid for today's
+            neurosciences and the associated reduction of the human being to a
+            mere quantitatively measurable neuron activity. While behaviorism
+            already led to the targeted manipulation of humans by means of
+            successes ranging from conditioning to nudging, neuroscience and
+            computer science promise far more profound possibilities to reduce
+            humans to a Pavlovian dog [8, 9].
           </p>
           <p>
-            Nicht zuletzt zeigen der Wandel des klassischen Marketings hin zum
-            Neuromarketing [10, 11] und die immer größeren Investitionen des
-            Silicon Valleys in die Hirnforschung [12], dass die
-            reduktionistischen Neurowissenschaften ihren Vorsprung gegenüber der
-            klassischen Psychologie in der Reduzierung des Menschen weiter
-            ausbauen werden. Der Mensch ist hier vorwiegend determiniertes und
-            gläsernes Produkt seiner Neuronen.
+            The shift from classical marketing to neuromarketing [10, 11] and
+            the Silicon Valley's increasing investment in brain research [12]
+            show that reductionist neuroscience will continue to expand its lead
+            over classical psychology in the reduction of the human being. The
+            human being here is predominantly a determined and transparent
+            product of his neurons.
           </p>
           <p>
-            War der Mensch hunderte Jahre nach Aristoteles auf Gottesabbild
-            angehoben, so holte Darwin 1859 mit der Entstehung der Arten den
-            Menschen wieder ins Tierreich zurück [13]. Markieren die obigen
-            Entwicklungen eine Reduzierung des Menschen nach dem Top-Down
-            Prinzip, so setzte Gregor Mendel sieben Jahre später, mit den
-            mendelschen Regeln [14] den Beginn der Genetik und der damit
-            einhergehenden Reduzierung nach dem Bottom-Up Prinzip. Ein Jahr
-            später begründete Francis Galton die Verhaltensgenetik [15], die
-            Reduzierung des Verhaltens auf die Erbanlagen. Aufbauend auf beiden,
-            zusammen mit der Entdeckung der Chromosomen und der darauf
-            befindlichen Gene läuteten unwissenschaftliche Methoden und
-            politische Ziele die Eugenik, Rassenlehre und die Zeit des
-            Sozialdarwinismus, unter dem Vorwand der Wissenschaftlichkeit, ein
-            [16]. Konnte man sich im Behaviorismus und der klassischen
-            Psychologie noch teileweise vor der Reduzierung schützen, indem man
-            sich bewusst anders verhält oder lügt, so war und ist man im
-            Sozialdarwinismus determiniertes, gläsernes Produkt seiner Herkunft
-            und damit seiner Gene. Die Vorstellung, dass Tüchtigkeit,
-            Intelligenz und Moral determiniert von den Erbanlagen waren, verlor
-            nach ihrem traurigen nationalsozialistischen Höhepunkt an Charme und
-            wurde vor allem im deutschsprachigen Raum seither totgeschwiegen.
-            Mit der Entdeckung der Desoxyribonukleinsäure kurz DNS, ihrer
-            Doppel-Helix [17] und der 1971 begründeten Gentechnik [18], wurde
-            der Mensch über die Evolution erhoben und erhielt die Werkzeuge nach
-            seinem Gusto Leben zu verändern. Mit dem Human Genome Projekt wurde
-            schließlich 2001 das menschliche Genom vollständig auf seine Basen
-            entschlüsselt [19]. Der Mensch wurde reduziert, genetisch
-            determiniert, gläsern und Produkt seiner Basenabfolge.
+            Hundreds of years after Aristotle man was raised to the image of
+            God, but in 1859 with the creation of the species Darwin brought him
+            back into the animal kingdom [13]. If the above developments mark a
+            reduction of man according to the top-down principle, Gregor Mendel
+            seven years later, with his Mendel's rules [14], set the beginning
+            of genetics and the accompanying reduction according to the
+            bottom-up principle. One year later, Francis Galton founded
+            behavioural genetics [15], the reduction of behaviour to genetic
+            predispositions. Building on both, together with the discovery of
+            the chromosomes and their underlying genes, unscientific methods and
+            political objectives launched eugenics, race theory, and the age of
+            Social Darwinism under the guise of scientificity [16]. Whereas in
+            behaviorism and classical psychology one could still partially
+            protect oneself from reduction by consciously behaving differently
+            or by lying, in Social Darwinism one was and is a determined,
+            transparent product of one's origin and thus of one's genes. The
+            idea that efficiency, intelligence and morality were determined by
+            heredity lost its charm after its sad National Socialist peak and
+            has since been hushed up, especially in the German-speaking world.
+            With the discovery of deoxyribonucleic acid (DNA), its double helix
+            [17] and genetic engineering [18], founded in 1971, man was elevated
+            above evolution and given the tools to change life to suit his
+            taste. With the Human Genome Project in 2001, the human genome was
+            finally completely decoded to its bases [19].Man was reduced to a
+            genetically determined, transparent product of his base sequence.
           </p>
           <p>
-            2018 wendete der Mensch diese Werkzeuge, auf sein entschlüsseltes
-            Genom an, erzeugte gentechnisch veränderte Nachkommen [20] und stoß
-            damit eine Entwicklung an, die sich womöglich nicht mehr stoppen
-            lassen wird. Fremdbestimmung durch die Herkunft, weicht der
-            pränatalen Fremdbestimmung durch Gentechniker. Die Eugenik und der
-            Sozialdarwinismus könnten durch diese biotechnologischen
-            Entwicklungen eine gefährliche und tiefgreifende Renaissance
-            erfahren.
+            In 2018, man applied these tools to his decoded genome, produced
+            genetically modified offspring [20] and thus initiated a development
+            that may not be stopped. External determination by origin, gives way
+            to prenatal external determination by genetic engineers. Eugenics
+            and Social Darwinism could experience a dangerous and profound
+            renaissance through these biotechnological developments.
           </p>
           <p>
-            Zwar sind bereits Grundsteinen der Patentierung von gentechnisch
-            veränderten Lebewesen gelegt, wie durch die EU Richtlinie 98/44/EC,
-            doch jene Richtlinie hält noch zurzeit dystopische Zukunftsvisionen,
-            durch Ausschließen von Genpatenten die in die menschliche Keimbahn
-            eingreifen, davon ab Realität zu werden [21].
+            Although the foundations for the patenting of genetically modified
+            organisms have already been laid, such as by the EU Directive
+            98/44/EC, that directive still prevents dystopian visions of the
+            future from becoming reality by excluding gene patents that
+            intervene in the human germ line [21].
           </p>
           <p>
-            Im Falle das einzelne Gene für die menschliche Modifikation jemals
-            patentiert werden können, Stichwort Designer-Babys [22], der bereits
-            angesprochenen Konditionierung und dem Neuromarketing, stehen wir
-            als Menschheit davor die zu Beginn gestellte vierte kantsche Frage,
-            was der Mensch sei, mit weder als ein Produkt seiner Basenabfolge,
-            noch als Produkt seiner Neuronen, sondern gänzlich reduziert mit
-            Produkt zu beantworten.
+            In the case that individual genes for human modification can ever be
+            patented, keyword designer babies [22], the already mentioned
+            conditioning and neuromarketing, we as mankind are about to answer
+            the fourth Kantian question asked at the beginning, what the human
+            being is, neither as a product of its base sequence nor as a product
+            of its neurons, but completely reduced with product.
           </p>
           <p>
-            Sowohl unterstützend, als auch parallel zu diesen Entwicklungen,
-            verläuft zurzeit mit rasantem Tempo die Entwicklung der künstlichen
-            Intelligenz [23], deren Grundsteine schon im letzten Jahrhundert
-            gelegt worden sind. Heutzutage reduziert die KI den Menschen
-            vollständig auf seine Datenspuren, die er in seinem alltäglichen
-            durch Instagram, Google, Amazon und Co geprägten Leben freiwillig
-            hinterlässt. Zugleich schlägtsie, überall wo sie Einzug hält, von
-            der Diagnostik [24], über die Produktion [25], biszu menschlichen
-            Freizeitaktivitäten [26], die menschliche Intelligenz von ihrem
-            Thron. Eine prognostizierte Massenarbeitslosigkeit [27], in der alle
-            Branchen, auch die Kreativindustrie betroffen sein werden [28],
-            drängen den Menschen in die Unbedeutsamkeit. In Anbetracht einer
-            zukünftigen technischen Singularität, kann die vierte kantsche Frage
-            möglicherweise in Zukunft mit irrelevant beantwortet werden.
+            Both supporting and parallel to these developments, the development
+            of artificial intelligence [23], the foundations of which were laid
+            in the last century, is currently proceeding at a rapid pace.
+            Nowadays, AI reduces humans completely to the data traces they
+            voluntarily leave behind in their daily lives, which are shaped by
+            Instagram, Google, Amazon and the others. At the same time, wherever
+            it enters the scene, from diagnostics [24], to production [25], to
+            human leisure activities [26], it knocks human intelligence from its
+            throne. A predicted mass unemployment [27], in which all sectors,
+            including the creative industries, will be affected [28], is pushing
+            people into insignificance. In view of a future technical
+            singularity, the fourth Kantian question can possibly in the future
+            be answered with irrelevant.
           </p>
           <p>
-            Wurde vom Autor bereits ein Versuch unternommen, einen
-            künstlerischen Gegenpol zur reduktionistisch, gläsern, unmündig
-            machenden Entwicklung der Neurowissenschaften und dem Neuromarketing
-            zu machen, indem ihre Werkzeuge benutzt wurden, so sollen analog zur
-            biotechnologisch und genetischen Entwicklung, nun künstlerische
-            Interpretationen der gläsernen und strukturdeterminierten DNS
-            umgesetzt werden. Hinter jedem digitalen Bild, Text oder Video
-            befinden sich Einsen oder Nullen, welche ausschließlich durch die
-            algorithmische Interpretation ihre Form und anschließend Bedeutung
-            erhalten. Gleich dazu stecken hinter jedem Lebewesen, so sehr diese
-            auch verschieden zu sein scheinen, laut reduktionistischer Genetik
-            nur Basenabfolgen von A, G, C und T.
+            While the author has already attempted to create an artistic
+            counterpart to the reductionist, transparent, incapacitating
+            development of the neurosciences and neuromarketing by using their
+            tools, artistic interpretations of the transparent and
+            structure-determined DNA are now to be implemented analogous to the
+            biotechnological and genetic development. Behind every digital
+            image, text or video there are ones or zeros, which receive their
+            form and then meaning exclusively through the algorithmic
+            interpretation. In the same way, behind every living being, no
+            matter how different they seem to be, according to reductionist
+            genetics there are only base sequences of A, G, C and T.
           </p>
           <p>
-            Durch die künstlerischen Interpretationen der (eigenen) DNS,
-            definiert der Mensch frei deren Bedeutung, konträr von festen
-            Werturteilen wie gut oder schlecht, hochwertig oder minderwertig,
-            tüchtig oder faul, er distanziert, stellt sich als Interpret und
-            nicht mehr als determiniertes, gläsernes Produkt und somit als
-            Individuum über diese Abfolge von Elementen. Er wird mehr als die
-            Summe seiner Basen.
+            Through artistic interpretations of (one's own) DNA, man freely
+            defines its meaning, contrary to fixed value judgements such as good
+            or bad, high or low quality, proficient or lazy, he distances
+            himself, places himself as an interpreter and no longer as a
+            determined, transparent product and thus as an individual above this
+            sequence of elements. He becomes more than the sum of his bases.
           </p>
         </v-card-text>
         <v-divider></v-divider>
         <v-card-text>
           <div style="white-space">
-            <p class="ft42">Literatur&#160;</p>
+            <p class="ft42">literature&#160;</p>
             <p>
               [1]&#160;&#160;Immanuel&#160;Kant,&#160;
               <i>
@@ -226,8 +214,9 @@
               >,&#160;F.&#160;M.&#160;Ortuño&#160;
               <br />Guzmán&#160;und&#160;I.&#160;Rojas,&#160;Hg.,&#160;Cham:&#160;Springer,&#160;2015,&#160;S.&#160;701–709,&#160;doi:
               10.1007/978-3-319-16480-9_68.&#160; <br />[11]&#160;&#160;
-              <i>
-                Neuromarketing:&#160;What&#160;You&#160;Need to&#160;Know.&#160; </i
+              <i
+                >Neuromarketing:&#160;What&#160;You&#160;Need
+                to&#160;Know.&#160;</i
               >[Online].&#160;Verfügbar&#160;unter:&#160;
               https://hbr.org/2019/01/neuromarketing-what-you-need-to-know.
               Zugriff&#160;am:&#160;23.&#160;April&#160;2020.&#160;
@@ -271,8 +260,9 @@
               genforschung-gene-strickleiter-100.html.&#160;Zugriff&#160;am:&#160;23.
               April 2020.&#160;
               <br />[18]&#160;&#160;
-              <i>
-                Professor Ray&#160;Wu&#160;|&#160;Biographical summary.&#160; </i
+              <i
+                >Professor Ray&#160;Wu&#160;|&#160;Biographical
+                summary.&#160;</i
               >[Online].&#160;Verfügbar&#160;unter:&#160;
               https://www.whatisbiotechnology.org/index.php/people/summary/Wu.&#160;Zugriff&#160;am:&#160;23.&#160;April&#160;2020.&#160;
               <br />[19]&#160;&#160;National&#160;Human&#160;Genome&#160;Research&#160;Institute,&#160;
@@ -332,14 +322,14 @@
               529,&#160;Nr.&#160;7587,&#160;S.&#160;484–489,&#160;2016,&#160;doi:
               10.1038/nature16961.&#160;
               <br />[27]&#160;&#160;C.&#160;B.&#160;Frey&#160;und&#160;M.&#160;A.&#160;Osborne,&#160;„The&#160;future&#160;of&#160;employment:&#160;How&#160;susceptible&#160;are&#160;jobs
-              to&#160; computerisation?“,&#160;<i
-                >Technological&#160;Forecasting and&#160;Social&#160;Change</i
+              to&#160; computerisation?“,&#160;
+              <i>Technological&#160;Forecasting and&#160;Social&#160;Change</i
               >,&#160;Jg.&#160;114,&#160;S.&#160;254–280,&#160;2017,&#160;doi:&#160;10.1016/j.techfore.2016.08.019.&#160;
               <br />[28]&#160;&#160;K. German,&#160;M.&#160;Limm,&#160;M. Wölfel
               und S. Helmerdig,&#160;„Towards&#160;Artificial
               Intelligence&#160;Serving&#160;as&#160;an&#160;
-              Inspiring&#160;Co-Creation&#160;Partner“,&#160;<i
-                >EAI&#160;Endorsed Transactions on Creative&#160;Technologies</i
+              Inspiring&#160;Co-Creation&#160;Partner“,&#160;
+              <i>EAI&#160;Endorsed Transactions on Creative&#160;Technologies</i
               >,&#160;Jg.&#160;6,&#160;S.&#160;162609,&#160;2019,&#160;doi:
               10.4108/eai.26-4-2019.162609.&#160;
             </p>

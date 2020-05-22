@@ -3,65 +3,62 @@
     <v-card>
       <v-app-bar color="green" dark>
         <v-icon x-large>mdi-dna</v-icon>
-        <span class="headline">Willkommen zum DNA-Synthesizer</span>
+        <span class="headline">Welcome to DNA-Synthesizer</span>
       </v-app-bar>
       <v-container>
-        <v-card-title>Allgemein</v-card-title>
+        <v-card-title>General</v-card-title>
         <v-card-text>
-          Mithilfe dieses Tools kannst du sowohl jegliche DNA, als auch RNA in
-          Töne und Musik überführen. Dazu stehen dir eine Vielzahl von
-          Instrumenten und Synthesizern zur Auswahl, die nach eigenem Gusto
-          kombiniert werden können, um sogar orchestralische Klänge zu erzeugen.
-          Die Einstellungen lassen dich Takt, Grundtondauer, Instrumente,
-          Startindex, Startverzögerung das jeweilige Notenspektrum und den zu
-          nutzenden Algorithmus auswählen. Mit etwas Feingefühl kannst du sogar
-          aus Pathogenen musikalische Erfahrungen herausholen. Mit dem
-          Plus-Symbol
-          <v-icon>mdi-plus</v-icon>kannst du die zurzeit ausgewählten
-          Einstellungen zu den bestehenden aktiven hinzufügen, erst dann werden
-          diese im nächsten Durchlauf aktiv. Bevor Änderungen wirksam werden,
-          muss der Zurücksetzknopf <v-icon>mdi-rewind</v-icon>betätigt werden.
-          Je mehr Algoritmen und vor allem je länger die Basenabfolge ist, desto
-          länger dauert die anfängliche Berechnung. Es bietet sich deswegen für
-          das Experimentieren an, nicht vollständige Genome zu nutzen, sondern
-          kleinere Teilausschnitte.
+          With this tool you can transform any DNA and RNA into sounds and
+          music. You can choose from a variety of instruments and synthesizers
+          that can be combined to create even orchestral sounds. The settings
+          let you choose the beat, key signature, instruments, start index,
+          start delay, note spectrum and algorithm to be used. With a little
+          sensitivity, you can even get musical experiences out of pathogens.
+          With the plus symbol
+          <v-icon>mdi-plus</v-icon>you can add the currently selected settings
+          to the existing active ones, only then they will become active in the
+          next run. Before changes take effect, the reset button
+          <v-icon>mdi-rewind</v-icon>must be pressed. The more algorithms and
+          especially the longer the base sequence, the longer the initial
+          calculation takes. Therefore, it is advisable for experiments not to
+          use complete genomes, but rather small sections of them.
         </v-card-text>
         <v-divider></v-divider>
-        <v-card-title>Algorithmen</v-card-title>
+        <v-card-title>Algorithms</v-card-title>
         <v-col cols="12">
           <v-card>
-            <v-card-title>Basen</v-card-title>
-            <v-card-text>
-              Beim einfachsten wird die DNA, die aus den vier Grundbausteinbasen
-              A,G,T,C besteht einzeln Base für Base gelesen und in eine
-              korrespondierende Note überführt. Hier stehen für jedes Instrument
-              pro Konfiguration vier Noten zur Verfügung.
-            </v-card-text>
+            <v-card-title>Bases</v-card-title>
+            <v-card-text
+              >In this algorithm, the simplest of those presented here, the DNA,
+              which consists of the four basic building block bases A,G,T,C, is
+              read individually base by base and converted into a corresponding
+              note. Here, four notes are available for each instrument per
+              configuration.</v-card-text
+            >
           </v-card>
         </v-col>
         <v-col cols="12">
           <v-card>
-            <v-card-title>Aminos</v-card-title>
-            <v-card-text>
-              In der Natur wird die DNA in der Regel zu einer RNA transkribiert
-              und anschließend wird diese in eine Aminosäurenabfolge
-              umgewandelt. Dafür werden bei der RNA immer drei Basen zusammen
-              gelesen, die dann eine entsprechende Aminosäure kodieren. Bei vier
-              verschiedenen möglichen Basen und drei Stellen ergeben sich 64
-              mögliche Kodierungen, jedoch gibt es nur 20 kanonische Aminosäuren
-              und einem Stopsignal. Dies führt bei den meisten Aminosäuren zu
-              Mehrfachbelegungen. 20 Aminosäuren und ein Stopsignal können in
-              diesem Fall 21 verschiedene Noten kodieren.
-            </v-card-text>
+            <v-card-title>Amino acids</v-card-title>
+            <v-card-text
+              >In nature, DNA is usually transcribed into RNA and then converted
+              into an amino acid sequences. To do this, three bases are always
+              read together in the RNA, which then code for a corresponding
+              amino acid. With four different possible bases and three
+              positions, there are 64 possible codons, but there are only 20
+              canonical amino acids and one stop signal. This leads to multiple
+              codons for most amino acids. 20 amino acids and a stop signal can
+              code 21 different notes in this case.</v-card-text
+            >
           </v-card>
         </v-col>
         <v-col cols="12">
           <v-card>
             <v-card-title>Codons</v-card-title>
-            <v-card-text>
-              Im direkten Vergleich zum vorangehenden Aminoalgorithmus werden
-              hier alle 64 Codons in Noten überführt.
-            </v-card-text>
+            <v-card-text
+              >In direct comparison to the previous amino acid algorithm, here
+              all 64 codons are converted into notes.</v-card-text
+            >
           </v-card>
         </v-col>
         <v-card-actions>

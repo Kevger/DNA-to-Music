@@ -2,6 +2,7 @@
 .firebase
 firebase.json
 .firebaserc
+.eslintrc.json
 node_modules
 /dist
 
