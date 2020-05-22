@@ -126,7 +126,7 @@
           </p>
           <p>
             While the author has already attempted to create an artistic
-            counterpart to the reductionist, transparent, incapacitating
+            counderpart to the reductionist, transparent, incapacitating
             development of the neurosciences and neuromarketing by using their
             tools, artistic interpretations of the transparent and
             structure-determined DNA are now to be implemented analogous to the
@@ -168,8 +168,8 @@
               <i>
                 Milieutheorie. Lexikon&#160;für
                 Psychologie&#160;und&#160;Pädagogik.&#160; </i
-              >[Online].&#160;Verfügbar&#160;unter:&#160;
-              https://lexikon.stangl.eu/18837/milieutheorie/.&#160;Zugriff&#160;am:&#160;23.
+              >[Online].&#160;Available&#160;under:&#160;
+              https://lexikon.stangl.eu/18837/milieutheorie/.&#160;Access&#160;am:&#160;23.
               April 2020.&#160;
               <br />[5]&#160;&#160;J.&#160;B.&#160;Watson,&#160;„Psychology&#160;as&#160;the&#160;behaviorist&#160;views
               it“,&#160; <i>Psychological Review</i>,&#160;Jg.&#160;20,&#160;Nr.
@@ -181,16 +181,16 @@
               <i>
                 The&#160;Nobel Prize&#160;in&#160;Physiology&#160;or
                 Medicine&#160;1906.&#160; </i
-              >[Online].&#160;Verfügbar&#160;unter:&#160;
-              https://www.nobelprize.org/prizes/medicine/1906/summary/.&#160;Zugriff&#160;am:&#160;23.&#160;April
+              >[Online].&#160;Available&#160;under:&#160;
+              https://www.nobelprize.org/prizes/medicine/1906/summary/.&#160;Access&#160;am:&#160;23.&#160;April
               2020.&#160; <br />[8]&#160;&#160;
               <i>
                 Big Data zur&#160;Verhaltenssteuerung?:&#160;Big
                 Nudging&#160;-&#160;zur&#160;Problemlösung&#160;wenig
                 geeignet.&#160; </i
               >[Online].&#160;
-              Verfügbar&#160;unter:&#160;https://www.spektrum.de/kolumne/big-nudging-zur-problemloesung-wenig-
-              geeignet/1375930.&#160;Zugriff&#160;am:
+              Available&#160;under:&#160;https://www.spektrum.de/kolumne/big-nudging-zur-problemloesung-wenig-
+              geeignet/1375930.&#160;Access&#160;am:
               23.&#160;April&#160;2020.&#160; <br />[9]&#160;&#160;L.
               Aguado,&#160;„Neuroscience&#160;of&#160;Pavlovian
               conditioning:&#160;a&#160;brief review“ (eng),&#160;
@@ -217,17 +217,17 @@
               <i
                 >Neuromarketing:&#160;What&#160;You&#160;Need
                 to&#160;Know.&#160;</i
-              >[Online].&#160;Verfügbar&#160;unter:&#160;
+              >[Online].&#160;Available&#160;under:&#160;
               https://hbr.org/2019/01/neuromarketing-what-you-need-to-know.
-              Zugriff&#160;am:&#160;23.&#160;April&#160;2020.&#160;
+              Access&#160;am:&#160;23.&#160;April&#160;2020.&#160;
               <br />[12]&#160;&#160;
               <i>
                 Das
                 Ende&#160;der&#160;Gedankenfreiheit:&#160;Tech-Firmen&#160;wollen&#160;mit&#160;unserem&#160;Gehirn&#160;Geld&#160;verdienen.&#160; </i
               >[Online].&#160;
-              Verfügbar&#160;unter:&#160;https://www.gq-magazin.de/auto-technik/article/das-ende-der-gedankenfreiheit-
+              Available&#160;under:&#160;https://www.gq-magazin.de/auto-technik/article/das-ende-der-gedankenfreiheit-
               tech-firmen-wollen-mit-unserem-gehirn-geld-verdienen.
-              Zugriff&#160;am:&#160;23.&#160;April&#160;2020.&#160;
+              Access&#160;am:&#160;23.&#160;April&#160;2020.&#160;
               <br />[13]&#160;&#160;C. Darwin,&#160;
               <i>
                 On the&#160;origin of&#160;species by&#160;means
@@ -239,7 +239,7 @@
               >.&#160;London:&#160;Murray,&#160;1859.&#160;
               <br />[14]&#160;&#160;G.&#160;Mendel,&#160;
               <i>Versuche&#160;über&#160;Pflanzen-Hybriden</i>,&#160;1866.
-              [Online].&#160;Verfügbar&#160;unter:&#160;
+              [Online].&#160;Available&#160;under:&#160;
               http://phaidra.univie.ac.at/o:171522&#160;
               <br />[15]&#160;&#160;R. L. Cautin und&#160;S. O.
               Lilienfeld,&#160;Hg.,&#160;
@@ -248,27 +248,27 @@
               Wiley&#160;&amp;&#160;Sons,&#160;Inc,&#160;2015.&#160;
               <br />[16]&#160;&#160;M.&#160;Lenzen,&#160;
               <i>Was&#160;ist&#160;Sozialdarwinismus?&#160;|&#160;bpb.&#160;</i
-              >[Online].&#160;Verfügbar&#160;unter:&#160;
+              >[Online].&#160;Available&#160;under:&#160;
               https://www.bpb.de/politik/extremismus/rechtsextremismus/214188/was-ist-sozialdarwinismus.&#160;
-              Zugriff&#160;am:&#160;23. April 2020.&#160;
+              Access&#160;am:&#160;23. April 2020.&#160;
               <br />[17]&#160;&#160;Bayerischer&#160;Rundfunk,&#160;
               <i>
                 Entdeckung der&#160;Doppelhelix:&#160;James Watson
                 entschlüsselte&#160;die&#160;DNS-Struktur.&#160;
               </i>
-              [Online].&#160;Verfügbar&#160;unter:&#160;https://www.br.de/themen/wissen/james-watson-dna-dns-francis-crick-
-              genforschung-gene-strickleiter-100.html.&#160;Zugriff&#160;am:&#160;23.
+              [Online].&#160;Available&#160;under:&#160;https://www.br.de/themen/wissen/james-watson-dna-dns-francis-crick-
+              genforschung-gene-strickleiter-100.html.&#160;Access&#160;am:&#160;23.
               April 2020.&#160;
               <br />[18]&#160;&#160;
               <i
                 >Professor Ray&#160;Wu&#160;|&#160;Biographical
                 summary.&#160;</i
-              >[Online].&#160;Verfügbar&#160;unter:&#160;
-              https://www.whatisbiotechnology.org/index.php/people/summary/Wu.&#160;Zugriff&#160;am:&#160;23.&#160;April&#160;2020.&#160;
+              >[Online].&#160;Available&#160;under:&#160;
+              https://www.whatisbiotechnology.org/index.php/people/summary/Wu.&#160;Access&#160;am:&#160;23.&#160;April&#160;2020.&#160;
               <br />[19]&#160;&#160;National&#160;Human&#160;Genome&#160;Research&#160;Institute,&#160;
               <i>What&#160;is the&#160;Human&#160;Genome&#160;Project?&#160;</i
               >[Online].&#160;
-              Verfügbar&#160;unter:&#160;https://www.genome.gov/human-genome-project/What.&#160;Zugriff&#160;am:&#160;23.
+              Available&#160;under:&#160;https://www.genome.gov/human-genome-project/What.&#160;Access&#160;am:&#160;23.
               April&#160; 2020.&#160;
               <br />[20]&#160;&#160;D.&#160;Cyranoski&#160;und&#160;H.&#160;Ledford,&#160;„Genome-edited
               baby&#160;claim&#160;provokes&#160;international
@@ -281,9 +281,9 @@
                 Directive&#160;on&#160;the&#160;legal
                 protection&#160;of&#160;biotechnological&#160;inventions.&#160;
               </i>
-              [Online].&#160;Verfügbar&#160;unter:&#160;https://eur-
+              [Online].&#160;Available&#160;under:&#160;https://eur-
               lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:1998:213:0013:0021:EN:PDF.
-              Zugriff&#160;am:&#160;23. April&#160; 2020.&#160;
+              Access&#160;am:&#160;23. April&#160; 2020.&#160;
               <br />[22]&#160;&#160;A.&#160;C.&#160;J.&#160;W.&#160;Janssens,&#160;„Designing
               babies
               through&#160;gene&#160;editing:&#160;science&#160;or&#160;science&#160;fiction?“&#160;(eng),&#160;
@@ -298,9 +298,9 @@
                 all&#160;over&#160;the&#160;world,&#160;and it’s accelerating
                 quickly.&#160; </i
               >[Online].&#160;
-              Verfügbar&#160;unter:&#160;https://www.theverge.com/2018/12/12/18136929/artificial-intelligence-ai-index-
+              Available&#160;under:&#160;https://www.theverge.com/2018/12/12/18136929/artificial-intelligence-ai-index-
               report-2018-machine-learning-global-progress-research.
-              Zugriff&#160;am:&#160;28. April 2020.&#160;
+              Access&#160;am:&#160;28. April 2020.&#160;
               <br />[24]&#160;&#160;S.&#160;M.&#160;McKinney
               <i>&#160;et&#160;al.,&#160;</i>
               „International evaluation
@@ -312,9 +312,9 @@
               <i>
                 Robotics&#160;and&#160;AI
                 improve&#160;factories&#160;of&#160;the&#160;future.&#160; </i
-              >[Online].&#160;Verfügbar&#160;unter:&#160;
+              >[Online].&#160;Available&#160;under:&#160;
               https://www.controleng.com/articles/robotics-and-ai-improve-factories-of-the-future/.
-              Zugriff&#160;am:&#160; 28.&#160;April&#160;2020.&#160;
+              Access&#160;am:&#160; 28.&#160;April&#160;2020.&#160;
               <br />[26]&#160;&#160;D. Silver
               <i>&#160;et&#160;al.,&#160;</i>„Mastering
               the&#160;game&#160;of&#160;Go&#160;with&#160;deep&#160;neural&#160;networks
