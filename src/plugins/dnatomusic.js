@@ -101,7 +101,7 @@ function createSynth(synthesizer) {
 }
 
 export const interpretations = {
-  Sprache: (dna, config, callbackEnd) => {
+  Speech: (dna, config, callbackEnd) => {
     const type = config.specificConfig;
     const voice = config.synthesizer;
     let text = "";
@@ -117,7 +117,7 @@ export const interpretations = {
           .map(word => word.charAt(0).toUpperCase() + word.slice(1))
           .join(" ");
         break;
-      case "Amino":
+      case "Amino acids":
         text = getAminos(extractCodons(dna, 3, 3))
           .map(s => AANames[s])
           .join(" ");
@@ -125,7 +125,7 @@ export const interpretations = {
       case "Human":
         text = dnaToText(dna);
         break;
-      case "Gedicht":
+      case "Lyrics":
         text = dnaToText(dna, dnaLyricTable);
         break;
       default:
@@ -150,7 +150,7 @@ export const interpretations = {
       return undefined;
     }
   },
-  Basen: (dna, config, callback) => {
+  Bases: (dna, config, callback) => {
     const synthesizer = config.synthesizer;
     let noteList;
     if ("random" == config.specificConfig) {
@@ -184,7 +184,7 @@ export const interpretations = {
     );
     return synthPart;
   },
-  Aminos: (dna, config, callback) => {
+  "Amino acids": (dna, config, callback) => {
     const synthesizer = config.synthesizer;
     let noteList;
     if ("random" == config.specificConfig) {

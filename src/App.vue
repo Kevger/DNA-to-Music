@@ -130,15 +130,15 @@ export default {
     stopped: false,
     updateOuput: [],
     activeAlgorithms: 0,
-    algorithms: ["Basen", "Aminos", "Codons", "Sprache"],
+    algorithms: ["Bases", "Amino acids", "Codons", "Speech"],
     algorithm: "",
     synthesizers: availableSynthesizers,
     visualizationActive: true,
     specificConfigs: {
-      Basen: Object.keys(noteTableBases),
-      Aminos: Object.keys(noteTableAminos),
-      Codons: ["Keine"],
-      Sprache: ["DNA", "Codon", "Amino", "Human", "Gedicht"]
+      Bases: Object.keys(noteTableBases),
+      "Amino acids": Object.keys(noteTableAminos),
+      Codons: ["Nothing"],
+      Speech: ["DNA", "Codon", "Amino acids", "Human", "Lyrics"]
     },
     addedConfigs: [],
     loading: true,
@@ -148,7 +148,7 @@ export default {
   }),
   computed: {
     shownSynthesizers() {
-      if (this.algorithm == "Sprache") {
+      if (this.algorithm == "Speech") {
         return getVoices();
       } else {
         return this.synthesizers;
@@ -201,7 +201,7 @@ export default {
       this.$forceUpdate();
       let onlySpeech = true;
       this.addedConfigs.forEach(
-        c => (onlySpeech = c.algorithm != "Sprache" ? false : onlySpeech)
+        c => (onlySpeech = c.algorithm != "Speech" ? false : onlySpeech)
       );
       if (onlySpeech) this.processing = false;
 
@@ -219,7 +219,7 @@ export default {
                 interpretations[c.algorithm](
                   this.dna.substr(c.startPosition),
                   c,
-                  c.algorithm != "Sprache" ? callback : this.onRewindUpdate
+                  c.algorithm != "Speech" ? callback : this.onRewindUpdate
                 )
               );
               for (let i = 0; i < activeInstruments.length; ++i)

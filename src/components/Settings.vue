@@ -106,7 +106,7 @@
           <v-container>
             <v-slider
               v-model="bpm"
-              max="400"
+              max="300"
               min="1"
               step="1"
               label="BPM"
@@ -297,7 +297,7 @@ export default {
         });
         this.updateAddedConfigs();
       } else {
-        alert(`Maximal ${maxConfigs} Konfigurationen zulässig`);
+        alert(`Max. ${maxConfigs} configurationens allowed`);
       }
     },
     remove(key) {
@@ -330,7 +330,7 @@ export default {
       return !(Array.isArray(this.addedConfigs) && this.addedConfigs.length);
     },
     isSpeech() {
-      return this.algorithm == "Sprache";
+      return this.algorithm == "Speech";
     }
   },
   watch: {
@@ -340,7 +340,7 @@ export default {
     algorithm() {
       this.updateSettings();
       this.specificConfig = this.shownSpecificConfigs[0];
-      if (this.algorithm == "Sprache") this.notificationSpeech = true;
+      if (this.algorithm == "Speech") this.notificationSpeech = true;
     },
     bpm() {
       this.updateSettings();
