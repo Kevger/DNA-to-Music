@@ -99,7 +99,7 @@
 
       <v-col cols="12">
         <v-card>
-          <v-card-title>Steuerung</v-card-title>
+          <v-card-title>Controls</v-card-title>
           <v-card-subtitle>
             Control of all active algorithms. Add more using the plus symbol.
           </v-card-subtitle>

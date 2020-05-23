@@ -34,7 +34,7 @@
               <v-dialog max-width="800">
                 <template v-slot:activator="{ on }">
                   <v-btn color="green" dark v-on="on">
-                    <v-icon>mdi-format-text-rotation-none</v-icon>DNA-Übersetzer
+                    <v-icon>mdi-format-text-rotation-none</v-icon>DNA translator
                   </v-btn>
                 </template>
                 <TranslationPopup @loadDna="loadDnaPopup"></TranslationPopup>
