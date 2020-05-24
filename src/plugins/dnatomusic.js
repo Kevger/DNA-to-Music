@@ -35,7 +35,7 @@ export const usedInstruments = [
   "organ",
   "bassoon",
   "french-horn",
-  "harmonium",
+  "harmonium"
 ];
 export const availableSynthesizers = ["MonoSynth", "MembraneSynth"].concat(
   usedInstruments

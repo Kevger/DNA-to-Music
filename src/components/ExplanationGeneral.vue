@@ -17,10 +17,10 @@
           With the plus symbol
           <v-icon>mdi-plus</v-icon>you can add the currently selected settings
           to the existing active ones, only then they will become active in the
-          next run. The more algorithms and
-          especially the longer the base sequence, the longer the initial
-          computation takes. Therefore, it is advisable for experiments not to
-          use complete genomes, but rather small sections of them.
+          next run. The more algorithms and especially the longer the base
+          sequence, the longer the initial computation takes. Therefore, it is
+          advisable for experiments not to use complete genomes, but rather
+          small sections of them.
         </v-card-text>
         <v-divider></v-divider>
         <v-card-title>Algorithms</v-card-title>
