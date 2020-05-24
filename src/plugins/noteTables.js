@@ -143,7 +143,7 @@ export const noteTableBases = {
 };
 
 export const noteTableAminos = {
-  1: {
+  "Default 1": {
     phe: "A1",
     leu: "A2",
     ser: "A3",
@@ -166,7 +166,7 @@ export const noteTableAminos = {
     gly: null,
     stp: "A0"
   },
-  2: {
+  "Default 2": {
     phe: "A1",
     leu: "B1",
     ser: "C1",
@@ -189,7 +189,7 @@ export const noteTableAminos = {
     gly: "G4",
     stp: null
   },
-  3: {
+  "Default 3": {
     phe: "A3",
     leu: "B3",
     ser: "C3",
@@ -212,7 +212,7 @@ export const noteTableAminos = {
     gly: "F5",
     stp: null
   },
-  4: {
+  "Default 4": {
     phe: "C4",
     leu: "D4",
     ser: "E4",
@@ -238,7 +238,7 @@ export const noteTableAminos = {
     gly: "G7",
     stp: null
   },
-  "Bass electric": {
+  "Bass electric optimized": {
     phe: "A#2",
     leu: "A#3",
     ser: "A#4",
@@ -266,7 +266,7 @@ export const noteTableAminos = {
     stp: null
   },
 
-  Cello: {
+  "Cello optimized": {
     phe: "A#2",
     leu: "A#3",
     ser: "A#4",
@@ -296,7 +296,7 @@ export const noteTableAminos = {
     stp: null
   },
 
-  "electric guitar": {
+  "electric guitar optimized": {
     phe: "A2",
     leu: "A3",
     ser: "A4",
@@ -326,7 +326,7 @@ export const noteTableAminos = {
     stp: null
   },
 
-  "acustic guitar": {
+  "acustic guitar optimized": {
     phe: "A#1",
     leu: "A#2",
     ser: "A#3",
@@ -355,7 +355,7 @@ export const noteTableAminos = {
     stp: null
   },
 
-  clarinet: {
+  "clarinet optimized": {
     phe: "A#2",
     leu: "A#3",
     ser: "A#3",
@@ -385,7 +385,7 @@ export const noteTableAminos = {
     gly: null,
     stp: null
   },
-  "french-horn": {
+  "french-horn optimized": {
     phe: null,
     leu: "A0",
     ser: null,
@@ -416,7 +416,7 @@ export const noteTableAminos = {
     gly: "G1",
     stp: null
   },
-  violin: {
+  "violin optimized": {
     phe: "A3",
     leu: null,
     ser: "A4",
@@ -444,7 +444,7 @@ export const noteTableAminos = {
     gly: "G6",
     stp: null
   },
-  xylophone: {
+  "xylophone optimized": {
     phe: "C4",
     leu: "C5",
     ser: "C6",
@@ -471,6 +471,90 @@ export const noteTableAminos = {
     met: "G5",
     gly: "G6",
     stp: null
+  },
+  random: {}
+};
+export const noteTableCodons = {
+  "Default 1": {
+    UUU: "A0",
+    UUC: "A1",
+    UUA: "A2",
+    UUG: "A3",
+
+    UCU: "A4",
+    UCC: "A5",
+    UCA: "A6",
+    UCG: "A7",
+
+    UAU: "B0",
+    UAC: "B1",
+    UAA: "B2",
+    UAG: "B3",
+
+    UGU: "B4",
+    UGC: "B5",
+    UGA: "B6",
+    UGG: "B7",
+
+    CUU: "C8",
+    CUC: "C1",
+    CUA: "C2",
+    CUG: "C3",
+
+    CCU: "C4",
+    CCC: "C5",
+    CCA: "C6",
+    CCG: "C7",
+
+    CAU: "D8",
+    CAC: "D1",
+    CAA: "D2",
+    CAG: "D3",
+
+    CGU: "D4",
+    CGC: "D5",
+    CGA: "D6",
+    CGG: "D7",
+
+    AUU: "E1",
+    AUC: "E2",
+    AUA: "E3",
+    AUG: "E4",
+
+    ACU: "E5",
+    ACC: "E6",
+    ACA: "E7",
+    ACG: "E8",
+
+    AAU: "F1",
+    AAC: "F2",
+    AAA: "F3",
+    AAG: "F4",
+
+    AGU: "F5",
+    AGC: "F6",
+    AGA: "F7",
+    AGG: "F8",
+
+    GUU: "G1",
+    GUC: "G2",
+    GUA: "G3",
+    GUG: "G4",
+
+    GCU: "G5",
+    GCC: "G6",
+    GCA: "G7",
+    GCG: "G8",
+
+    GAU: "A#2",
+    GAC: "D#3",
+    GAA: "C#5",
+    GAG: "D#4",
+
+    GGU: "C#4",
+    GGC: "F#4",
+    GGA: "G#4",
+    GGG: "D#5"
   },
   random: {}
 };

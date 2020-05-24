@@ -4,11 +4,11 @@
       <v-row dense>
         <v-col xs="12" sm="12" md="4" lg="4" xl="4">
           <v-container>
-            <v-card-text
-              >Enter the base sequence (RNA or DNA) or select from the samples,
+            <v-card-text>
+              Enter the base sequence (RNA or DNA) or select from the samples,
               which is then converted into music. Genes consist exclusively of
-              A,T,G,C sequences. Viral RNA has U instead of T.</v-card-text
-            >
+              A,T,G,C sequences. Viral RNA has U instead of T.
+            </v-card-text>
             <v-select
               class="mx-4"
               v-model="selectedSample"
@@ -63,13 +63,21 @@
             dense
             outlined
             type="error"
-            dismissible
             transition="scale-transition"
-            @input="closeAlert"
+            @input="alert = false"
           >
             Invalid entry - Please enter only DNA consisting of the bases
             <strong>A, T, G, C, U</strong>.
           </v-alert>
+          <v-alert
+            :value="this.dna.length > 5000"
+            dense
+            outlined
+            type="warning"
+            transition="scale-transition"
+            >DNA sequence is very long. This can lead to increased computation
+            times. If necessary, shorten the length.</v-alert
+          >
         </v-col>
       </v-row>
     </v-card>
@@ -89,9 +97,9 @@ export default {
   },
   data: () => ({
     dna: "",
-    alert: false,
+    alertInvalid: false,
     searchTerm: "",
-    selectedSample: Object.keys(sampleGenes)[0],
+    selectedSample: Object.keys(sampleGenes)[2],
     sampleGenesNames: (() => Object.keys(sampleGenes).map(s => s))()
   }),
   created() {
@@ -122,9 +130,6 @@ export default {
       } else {
         this.alert = true;
       }
-    },
-    closeAlert() {
-      this.alert = false;
     },
     debounceDNAInput: debounce(function() {
       this.updateDna();

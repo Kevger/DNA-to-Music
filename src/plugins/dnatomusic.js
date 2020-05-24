@@ -9,6 +9,7 @@ import { SampleLibrary } from "./Tonejs-Instruments";
 import {
   noteTableBases,
   noteTableAminos,
+  noteTableCodons,
   createRandomNoteTable
 } from "./noteTables";
 
@@ -16,32 +17,29 @@ const Tone = require("tone");
 
 export const usedInstruments = [
   "piano",
-  "bass-electric",
-  "bassoon",
-  "cello",
-  "clarinet",
-  "contrabass",
-  "flute",
-  "french-horn",
   "guitar-acoustic",
   "guitar-electric",
   "guitar-nylon",
-  "harmonium",
+  "bass-electric",
+  "xylophone",
+  "violin",
+  "cello",
+  "contrabass",
   "harp",
-  "organ",
+  "flute",
+  "clarinet",
   "saxophone",
   "trombone",
   "trumpet",
   "tuba",
-  "violin",
-  "xylophone"
+  "organ",
+  "bassoon",
+  "french-horn",
+  "harmonium",
 ];
-export const availableSynthesizers = [
-  "PolySynth",
-  "MonoSynth",
-  "MembraneSynth",
-  "PluckSynth"
-].concat(usedInstruments);
+export const availableSynthesizers = ["MonoSynth", "MembraneSynth"].concat(
+  usedInstruments
+);
 let instruments;
 
 let isSpeech = false;
@@ -60,9 +58,9 @@ export function loadInstruments(callback) {
 
 export function setSettings(settings) {
   Tone.Transport.bpm.value = settings.bpm;
-  Tone.Master.volume.value = -25 + (settings.volume / 100) * 50;
+  Tone.Master.volume.value = -35 + (settings.volume / 100) * 50;
   speechVolume = settings.volume / 100;
-  speechSpeed = (settings.bpm / 400) * 4;
+  speechSpeed = (settings.bpm / 300) * 4;
 }
 
 export function getVoices() {
@@ -133,7 +131,6 @@ export const interpretations = {
         callbackEnd();
         return undefined;
     }
-    console.log(text);
 
     window.speechSynthesis.cancel();
     if ("speechSynthesis" in window) {
@@ -188,7 +185,9 @@ export const interpretations = {
     const synthesizer = config.synthesizer;
     let noteList;
     if ("random" == config.specificConfig) {
-      noteList = createRandomNoteTable(Object.keys(noteTableAminos[1]));
+      noteList = createRandomNoteTable(
+        Object.keys(noteTableAminos[Object.keys(noteTableAminos)[0]])
+      );
     } else {
       noteList = noteTableAminos[config.specificConfig];
     }
@@ -223,90 +222,16 @@ export const interpretations = {
     return sequenceCreator(synthesizer, dna, config.noteValue);
   },
   Codons: (dna, config, callback) => {
-    const synthesizer = config.synthesizer;
-    const codonTable = {
-      UUU: "A0",
-      UUC: "A1",
-      UUA: "A2",
-      UUG: "A3",
-
-      UCU: "A4",
-      UCC: "A5",
-      UCA: "A6",
-      UCG: "A7",
-
-      UAU: "B0",
-      UAC: "B1",
-      UAA: "B2",
-      UAG: "B3",
-
-      UGU: "B4",
-      UGC: "B5",
-      UGA: "B6",
-      UGG: "B7",
-
-      CUU: "C8",
-      CUC: "C1",
-      CUA: "C2",
-      CUG: "C3",
-
-      CCU: "C4",
-      CCC: "C5",
-      CCA: "C6",
-      CCG: "C7",
-
-      CAU: "D8",
-      CAC: "D1",
-      CAA: "D2",
-      CAG: "D3",
-
-      CGU: "D4",
-      CGC: "D5",
-      CGA: "D6",
-      CGG: "D7",
-
-      AUU: "E1",
-      AUC: "E2",
-      AUA: "E3",
-      AUG: "E4",
-
-      ACU: "E5",
-      ACC: "E6",
-      ACA: "E7",
-      ACG: "E8",
-
-      AAU: "F1",
-      AAC: "F2",
-      AAA: "F3",
-      AAG: "F4",
-
-      AGU: "F5",
-      AGC: "F6",
-      AGA: "F7",
-      AGG: "F8",
-
-      GUU: "G1",
-      GUC: "G2",
-      GUA: "G3",
-      GUG: "G4",
-
-      GCU: "G5",
-      GCC: "G6",
-      GCA: "G7",
-      GCG: "G8",
-
-      GAU: "A#2",
-      GAC: "D#3",
-      GAA: "C#5",
-      GAG: "D#4",
-
-      GGU: "C#4",
-      GGC: "F#4",
-      GGA: "G#4",
-      GGG: "D#5"
-    };
-    const notes = extractCodons(dna, 3, 3).map(a => codonTable[a]);
-    const synth = createSynth(synthesizer);
+    let noteList;
+    if ("random" == config.specificConfig) {
+      noteList = createRandomNoteTable(
+        Object.keys(noteTableCodons[Object.keys(noteTableCodons)[0]])
+      );
+    } else {
+      noteList = noteTableCodons[config.specificConfig];
+    }
+    const notes = extractCodons(dna, 3, 3).map(a => noteList[a]);
+    const synth = createSynth(config.synthesizer);
     let i = 0;
     const maxIndex = notes.length - 1;
     const synthPart = new Tone.Sequence(

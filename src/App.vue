@@ -77,7 +77,7 @@
         style="background-color: rgba(255, 255, 255, 0.5);"
       >
         <v-layout justify-center align-center>
-          Algorithms are calculating...
+          Algorithms are computing...
           <v-progress-circular
             indeterminate
             color="primary"
@@ -111,7 +111,11 @@ import {
   availableSynthesizers,
   loadInstruments
 } from "./plugins/dnatomusic";
-import { noteTableBases, noteTableAminos } from "./plugins/noteTables";
+import {
+  noteTableBases,
+  noteTableAminos,
+  noteTableCodons
+} from "./plugins/noteTables";
 
 export default {
   name: "App",
@@ -137,7 +141,7 @@ export default {
     specificConfigs: {
       Bases: Object.keys(noteTableBases),
       "Amino acids": Object.keys(noteTableAminos),
-      Codons: ["Nothing"],
+      Codons: Object.keys(noteTableCodons),
       Speech: ["DNA", "Codon", "Amino acids", "Human", "Lyrics"]
     },
     addedConfigs: [],
@@ -156,10 +160,8 @@ export default {
     }
   },
   mounted() {
-    console.log("Loading instruments....");
     const loadingDoneCallback = () => {
       this.loading = false;
-      console.log("Loading instruments done...");
     };
     loadInstruments(loadingDoneCallback);
   },
@@ -169,7 +171,6 @@ export default {
   methods: {
     onDnaUpdate(dna) {
       this.dna = dna;
-      console.log("DNA updated");
     },
 
     onSettingsUpdate(settings) {
@@ -184,21 +185,23 @@ export default {
 
     onRewindUpdate() {
       resetMusic();
-      console.log("Music rewinded");
       this.stopped = false;
       this.resetPlayer = !this.resetPlayer;
     },
 
-    onPlayingUpdate(isPlaying) {
+    onPlayingUpdate(info) {
       const callback = information => {
         this.processing = false;
         if (this.visualizationActive)
           this.$set(this.updateOuput, information.key, information);
       };
 
-      console.log("Algorithmen arbeiten...");
       this.processing = true;
       this.$forceUpdate();
+      if (info.configsChanged) {
+        resetMusic();
+        this.stopped = false;
+      }
       let onlySpeech = true;
       this.addedConfigs.forEach(
         c => (onlySpeech = c.algorithm != "Speech" ? false : onlySpeech)
@@ -207,7 +210,7 @@ export default {
 
       setTimeout(() => {
         try {
-          if (isPlaying) {
+          if (info.isPlaying) {
             if (this.stopped) {
               startMusic();
               this.stopped = false;
@@ -231,7 +234,7 @@ export default {
           } else {
             stopMusic();
             this.stopped = true;
-            console.log("Sound stopped!");
+            this.processing = false;
           }
         } catch (e) {
           console.log("Error: " + e);

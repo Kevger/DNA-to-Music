@@ -48,25 +48,6 @@ export default {
         };
         const rects = [];
         this.cv.clear();
-        //his.cv
-        // .text("AS: " + this.config.amino)
-        // .move(20, yOffset)
-        // .font({
-        //   fill: "#000",
-        //   family: "Inconsolata",
-        //   size: 30,
-        //   anchor: "left"
-        // });
-        //his.cv
-        // .text("Note: " + this.config.note)
-        // .move(20, 50 + yOffset)
-        // .font({
-        //   fill: "#000",
-        //   family: "Inconsolata",
-        //   size: 30,
-        //   anchor: "left"
-        // });
-
         for (let i = 0; i < this.config.base.length; ++i) {
           rects[i] = this.cv
             .rect(baseXSize, baseYSize)
