@@ -28,7 +28,18 @@
                 '4n.',
                 '8n.',
                 '16n.',
-                '32n.'
+                '32n.',
+                '1t',
+                '2t',
+                '4t',
+                '8t',
+                '16t',
+                '32t',
+                '1m',
+                '2m',
+                '4m',
+                '8m',
+                '16m'
               ]"
               @settingsUpdated="onSettingsUpdate"
               @addedConfigsUpdated="onAddedConfigsUpdate"

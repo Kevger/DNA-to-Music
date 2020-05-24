@@ -46,6 +46,28 @@
           </v-col>
           <v-col cols="12">
             <v-card>
+              <v-card-title>Notation</v-card-title>
+              <v-card-text>
+                Timing notation of the notes
+                <v-row>
+                  <v-col>
+                    <strong>n = note </strong>
+                  </v-col>
+                  <v-col>
+                    <strong>n.= dotted note</strong>
+                  </v-col>
+                  <v-col>
+                    <strong>t = note triplet</strong>
+                  </v-col>
+                  <v-col>
+                    <strong>m = measure</strong>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-card>
+          </v-col>
+          <v-col cols="12">
+            <v-card>
               <v-card-title>Base note value</v-card-title>
               <v-card-text>
                 Specifies the duration of the individual notes. For example, a
