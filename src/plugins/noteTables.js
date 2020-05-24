@@ -1,3 +1,10 @@
+import {
+  dnaLyricTable,
+  dnaRnaTable,
+  codonTable,
+  dnaTextTable
+} from "./dnaConverter";
+
 export const availableNotes = [
   null,
   "A0",
@@ -107,6 +114,14 @@ export const availableNotes = [
   "G9",
   "G#9"
 ];
+
+export const speechTable = {
+  DNA: dnaRnaTable,
+  Codon: codonTable,
+  "Amino acids": codonTable,
+  Lyric: dnaLyricTable,
+  Text: dnaTextTable
+};
 
 export const noteTableBases = {
   "C4 E4 G4 B4": {
@@ -565,6 +580,5 @@ export function createRandomNoteTable(keys) {
     noteTable[keys[i]] =
       availableNotes[Math.floor(Math.random() * availableNotes.length)];
   }
-  console.log(noteTable);
   return noteTable;
 }

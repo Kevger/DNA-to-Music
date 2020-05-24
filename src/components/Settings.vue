@@ -9,7 +9,7 @@
           >
 
           <v-row no-gutters>
-            <v-col cols="5">
+            <v-col cols="6">
               <v-select
                 v-model="algorithm"
                 class="mx-4"
@@ -19,34 +19,30 @@
                 outlined
               ></v-select>
             </v-col>
-            <v-col cols="5">
+            <v-col cols="6">
               <v-select
                 v-model="specificConfig"
                 class="mx-4"
                 :items="shownSpecificConfigs"
-                label="Scale"
+                label="Note mapping"
                 dense
                 outlined
               ></v-select>
             </v-col>
-            <v-col cols="2">
-              <v-btn fab color="green" dark small @click="explaining = true">
-                <v-icon>mdi-help</v-icon>
-              </v-btn>
-            </v-col>
           </v-row>
+
           <v-row no-gutters>
-            <v-col cols="7">
+            <v-col cols="6">
               <v-select
                 v-model="synthesizer"
                 class="mx-4"
                 :items="synthesizers"
-                label="Synthesizer / Instrument"
+                label="Instrument"
                 dense
                 outlined
               ></v-select>
             </v-col>
-            <v-col cols="5">
+            <v-col cols="6">
               <v-text-field
                 v-model="startPosition"
                 class="mx-4"
@@ -60,66 +56,74 @@
           </v-row>
 
           <v-row no-gutters>
-            <template v-if="!isSpeech">
-              <v-col>
-                <v-select
-                  v-model="noteValue"
-                  class="mx-4"
-                  :items="noteValues"
-                  label="Base note value"
-                  dense
-                  outlined
-                ></v-select>
-              </v-col>
-              <v-col>
-                <v-select
-                  v-model="tempo"
-                  class="mx-4"
-                  :items="noteValues"
-                  label="Tempo"
-                  dense
-                  outlined
-                ></v-select>
-              </v-col>
-              <v-col>
-                <v-select
-                  v-model="startDelay"
-                  class="mx-4"
-                  :items="noteValues"
-                  label="Delay"
-                  dense
-                  outlined
-                ></v-select>
-              </v-col>
-            </template>
-            <v-col>
-              <v-alert
-                :value="isSpeech"
+            <v-col cols="6">
+              <v-select
+                v-model="noteValue"
+                class="mx-4"
+                :items="noteValues"
+                label="Base note value"
                 dense
                 outlined
-                type="error"
-                transition="scale-transition"
-              >
-                <strong>Experimental!</strong>
-                <p>
-                  Text synthesis is not available on every browser/device or
-                  only allowed for a limited number of characters. The speed and
-                  volume of the synthesis cannot be changed afterwards.
-                  Visualization of text synthesis is also not available.
-                </p>
-              </v-alert>
+                :disabled="isSpeech"
+              ></v-select>
+            </v-col>
+            <v-col cols="6">
+              <v-select
+                v-model="tempo"
+                class="mx-4"
+                :items="noteValues"
+                label="Tempo"
+                dense
+                outlined
+                :disabled="isSpeech"
+              ></v-select>
             </v-col>
           </v-row>
+          <v-row no-gutters>
+            <v-col cols="6">
+              <v-select
+                v-model="startDelay"
+                class="mx-4"
+                :items="noteValues"
+                label="Delay"
+                dense
+                outlined
+                :disabled="isSpeech"
+              ></v-select>
+            </v-col>
+            <v-col cols="3"></v-col>
+            <v-col cols="3">
+              <v-btn fab color="green" dark small @click="explaining = true">
+                <v-icon>mdi-help</v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
+          <v-col>
+            <v-alert
+              :value="isSpeech"
+              dense
+              outlined
+              type="error"
+              transition="scale-transition"
+            >
+              <strong>Experimental!</strong>
+              <p>
+                Speech synthesis is not available on every browser/device or
+                only allowed for a limited number of characters. The speed and
+                volume of the synthesis cannot be changed afterwards.
+                Visualization of text synthesis is also not available.
+              </p>
+            </v-alert>
+          </v-col>
         </v-card>
       </v-col>
 
       <v-col cols="12">
         <v-card>
           <v-card-title>Controls</v-card-title>
-          <v-card-subtitle
-            >Control of all active algorithms. Add more using the plus
-            symbol.</v-card-subtitle
-          >
+          <v-card-subtitle>
+            Control of all active algorithms. Add more using the plus symbol.
+          </v-card-subtitle>
           <v-container>
             <v-slider
               v-model="bpm"
@@ -161,9 +165,9 @@
                 fab
                 @click="toggle"
               >
-                <v-icon large>
-                  {{ isPlaying ? "mdi-pause" : "mdi-play" }}
-                </v-icon>
+                <v-icon large>{{
+                  isPlaying ? "mdi-pause" : "mdi-play"
+                }}</v-icon>
               </v-btn>
 
               <v-tooltip bottom>
@@ -192,8 +196,8 @@
         <v-card>
           <v-card-title>Active Algorithms</v-card-title>
           <v-card-subtitle
-            >All parallel running algorithms. Only after a new run.
-            activated.</v-card-subtitle
+            >All parallel running algorithms. Freshly added algorithms active
+            after a new run.</v-card-subtitle
           >
           <v-container>
             <v-chip
@@ -231,6 +235,7 @@
     </v-snackbar>
     <v-dialog v-model="explaining" fullscreen>
       <ExplanationSettings
+        :translationTablePairs="translationTablePairs"
         @windowClosed="explaining = false"
       ></ExplanationSettings>
     </v-dialog>
@@ -239,6 +244,13 @@
 
 <script>
 import ExplanationSettings from "./ExplanationSettings";
+import {
+  noteTableBases,
+  noteTableCodons,
+  noteTableAminos,
+  speechTable
+} from "../plugins/noteTables";
+
 export default {
   components: {
     ExplanationSettings
@@ -334,6 +346,32 @@ export default {
     }
   },
   computed: {
+    translationTablePairs() {
+      const algorithmNoteTables = {
+        Bases: noteTableBases,
+        "Amino acids": noteTableAminos,
+        Codons: noteTableCodons,
+        Speech: speechTable
+      };
+      const noteTable =
+        algorithmNoteTables[this.algorithm][this.specificConfig];
+      const pairTable = {};
+      const escapeCharacter = {
+        " ": "space",
+        "\t": "tab",
+        "\n": "newline",
+        null: "pause"
+      };
+      const escapeChecker = s => escapeCharacter[s] || s;
+      let i = 1;
+      Object.keys(noteTable).forEach(codon => {
+        pairTable[i++] = {
+          key: codon,
+          symbol: escapeChecker(noteTable[codon])
+        };
+      });
+      return pairTable;
+    },
     shownSpecificConfigs() {
       return this.specificConfigs[this.algorithm];
     },

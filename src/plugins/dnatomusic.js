@@ -99,54 +99,6 @@ function createSynth(synthesizer) {
 }
 
 export const interpretations = {
-  Speech: (dna, config, callbackEnd) => {
-    const type = config.specificConfig;
-    const voice = config.synthesizer;
-    let text = "";
-    switch (type) {
-      case "DNA":
-        text = [...dna].join(" ").replace(/U/g, "T");
-        break;
-      case "Codon":
-        text = extractCodons(dna, 3, 3)
-          .join(" ")
-          .toLowerCase()
-          .split(" ")
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(" ");
-        break;
-      case "Amino acids":
-        text = getAminos(extractCodons(dna, 3, 3))
-          .map(s => AANames[s])
-          .join(" ");
-        break;
-      case "Human":
-        text = dnaToText(dna);
-        break;
-      case "Lyrics":
-        text = dnaToText(dna, dnaLyricTable);
-        break;
-      default:
-        console.log("unknown synthesizer");
-        callbackEnd();
-        return undefined;
-    }
-
-    window.speechSynthesis.cancel();
-    if ("speechSynthesis" in window) {
-      isSpeech = true;
-      const speechUtterance = new SpeechSynthesisUtterance(text);
-      speechUtterance.volume = speechVolume;
-      speechUtterance.rate = speechSpeed;
-      speechUtterance.onend = callbackEnd;
-      speechUtterance.voice = voices.filter(v => v.name == voice)[0];
-      return { start: () => window.speechSynthesis.speak(speechUtterance) };
-    } else {
-      console.log("speech synthesis not supported - please update browser");
-      callbackEnd();
-      return undefined;
-    }
-  },
   Bases: (dna, config, callback) => {
     const synthesizer = config.synthesizer;
     let noteList;
@@ -254,5 +206,53 @@ export const interpretations = {
     );
 
     return synthPart;
+  },
+  Speech: (dna, config, callbackEnd) => {
+    const type = config.specificConfig;
+    const voice = config.synthesizer;
+    let text = "";
+    switch (type) {
+      case "DNA":
+        text = [...dna].join(" ").replace(/U/g, "T");
+        break;
+      case "Codon":
+        text = extractCodons(dna, 3, 3)
+          .join(" ")
+          .toLowerCase()
+          .split(" ")
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ");
+        break;
+      case "Amino acids":
+        text = getAminos(extractCodons(dna, 3, 3))
+          .map(s => AANames[s])
+          .join(" ");
+        break;
+      case "Text":
+        text = dnaToText(dna);
+        break;
+      case "Lyrics":
+        text = dnaToText(dna, dnaLyricTable);
+        break;
+      default:
+        console.log("unknown synthesizer");
+        callbackEnd();
+        return undefined;
+    }
+
+    window.speechSynthesis.cancel();
+    if ("speechSynthesis" in window) {
+      isSpeech = true;
+      const speechUtterance = new SpeechSynthesisUtterance(text);
+      speechUtterance.volume = speechVolume;
+      speechUtterance.rate = speechSpeed;
+      speechUtterance.onend = callbackEnd;
+      speechUtterance.voice = voices.filter(v => v.name == voice)[0];
+      return { start: () => window.speechSynthesis.speak(speechUtterance) };
+    } else {
+      console.log("speech synthesis not supported - please update browser");
+      callbackEnd();
+      return undefined;
+    }
   }
 };

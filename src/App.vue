@@ -114,7 +114,8 @@ import {
 import {
   noteTableBases,
   noteTableAminos,
-  noteTableCodons
+  noteTableCodons,
+  speechTable
 } from "./plugins/noteTables";
 
 export default {
@@ -134,7 +135,7 @@ export default {
     stopped: false,
     updateOuput: [],
     activeAlgorithms: 0,
-    algorithms: ["Bases", "Amino acids", "Codons", "Speech"],
+    algorithms: Object.keys(interpretations),
     algorithm: "",
     synthesizers: availableSynthesizers,
     visualizationActive: true,
@@ -142,7 +143,7 @@ export default {
       Bases: Object.keys(noteTableBases),
       "Amino acids": Object.keys(noteTableAminos),
       Codons: Object.keys(noteTableCodons),
-      Speech: ["DNA", "Codon", "Amino acids", "Human", "Lyrics"]
+      Speech: Object.keys(speechTable)
     },
     addedConfigs: [],
     loading: true,

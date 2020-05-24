@@ -3,8 +3,15 @@
     <template #activator="{ on: dialog }">
       <v-tooltip left>
         <template #activator="{ on: tooltip }">
-          <v-btn fab color="green" dark small v-on="{ ...dialog, ...tooltip }">
-            <v-icon>mdi-help</v-icon>
+          <v-btn
+            :fab="textButton ? false : true"
+            color="green"
+            dark
+            small
+            v-on="{ ...dialog, ...tooltip }"
+          >
+            {{ textButton ? textButton : null }}
+            <v-icon v-if="textButton === null">mdi-help</v-icon>
           </v-btn>
         </template>
         <span>{{ label }}</span>
@@ -37,7 +44,8 @@ export default {
   props: {
     translationPairTable: { type: Object },
     label: { type: String },
-    information: { type: String }
+    information: { type: String },
+    textButton: { type: String, default: null }
   }
 };
 </script>
