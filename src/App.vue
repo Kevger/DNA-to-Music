@@ -52,7 +52,7 @@
             <GeneOutput
               :update="updateOuput"
               :activeAlgorithms="activeAlgorithms"
-            ></GeneOutput>
+            />
           </v-col>
         </v-row>
       </v-container>
@@ -74,12 +74,10 @@
       </v-container>
     </v-dialog>
     <v-dialog v-model="explaining" fullscreen>
-      <ExplanationGeneral
-        @windowClosed="explaining = false"
-      ></ExplanationGeneral>
+      <ExplanationGeneral @windowClosed="explaining = false" />
     </v-dialog>
     <v-dialog v-model="explainingWhy" fullscreen>
-      <ExplanationWhy @windowClosed="explainingWhy = false"></ExplanationWhy>
+      <ExplanationWhy @windowClosed="explainingWhy = false" />
     </v-dialog>
     <v-dialog v-model="processing" fullscreen>
       <v-container

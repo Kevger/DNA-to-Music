@@ -29,7 +29,7 @@
                   :translation-pair-table="translationTablePairs"
                   label="Current note mapping"
                   information="Depending on the instrument and algorithm not all possible notes can be represented"
-                ></TranslationTable>
+                />
               </v-card-text>
             </v-card>
           </v-col>

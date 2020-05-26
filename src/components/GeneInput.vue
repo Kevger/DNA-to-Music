@@ -37,7 +37,7 @@
                     <v-icon>mdi-format-text-rotation-none</v-icon>DNA translator
                   </v-btn>
                 </template>
-                <TranslationPopup @loadDna="loadDnaPopup"></TranslationPopup>
+                <TranslationPopup @loadDna="loadDnaPopup" />
               </v-dialog>
               <v-spacer></v-spacer>
               <v-btn fab color="green" dark small @click="openHelp">

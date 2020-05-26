@@ -57,7 +57,7 @@
           <TranslationTable
             :translation-pair-table="dnaRnaTablePairs"
             label="DNA-RNA transcription table"
-          ></TranslationTable>
+          />
         </template>
       </v-textarea>
       <v-textarea
@@ -75,7 +75,7 @@
             :translation-pair-table="dnaAminoTablePairs"
             label="DNA amino acids Translation table"
             information="There are 64 possible codons, 61 of which are intended for 20 amino acids and three as stop signals. Thus the assignment of codon to amino acid is unique, but for almost all amino acids to the codon no longer."
-          ></TranslationTable>
+          />
         </template>
       </v-textarea>
       <v-textarea
@@ -93,7 +93,7 @@
             :translation-pair-table="dnaTextTablePairs"
             label="DNA Text Translation Table"
             information="Not all characters like capital letters can be coded due to the limitation to 64 possible codons."
-          ></TranslationTable>
+          />
         </template>
       </v-textarea>
     </v-container>

@@ -237,7 +237,7 @@
       <ExplanationSettings
         :translationTablePairs="translationTablePairs"
         @windowClosed="explaining = false"
-      ></ExplanationSettings>
+      />
     </v-dialog>
   </v-container>
 </template>
