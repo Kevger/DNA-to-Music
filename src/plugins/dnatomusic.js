@@ -231,7 +231,7 @@ export const interpretations = {
       case "Text":
         text = dnaToText(dna);
         break;
-      case "Lyrics":
+      case "Lyric":
         text = dnaToText(dna, dnaLyricTable);
         break;
       default:
