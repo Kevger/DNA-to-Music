@@ -149,7 +149,7 @@
 
             <v-divider></v-divider>
 
-            <v-card-actions>
+            <v-card-actions style="min-width: 300px;">
               <v-tooltip bottom>
                 <template #activator="{on: tooltip}">
                   <v-btn color="green" fab @click="add" v-on="tooltip">
@@ -179,14 +179,14 @@
                 <span>Rewind and reload algorithms</span>
               </v-tooltip>
 
-              <v-switch
+              <!-- <v-switch
                 dense
                 class="mx-4"
                 persistent-hint
                 hint="Disabling the visualization can increase performance"
                 v-model="visualizationActive"
                 label="Visualization"
-              ></v-switch>
+              ></v-switch>-->
             </v-card-actions>
           </v-container>
         </v-card>
@@ -195,10 +195,10 @@
       <v-col cols="12">
         <v-card>
           <v-card-title>Active Algorithms</v-card-title>
-          <v-card-subtitle
-            >All parallel running algorithms. Freshly added algorithms active
-            after a new run.</v-card-subtitle
-          >
+          <v-card-subtitle>
+            All parallel running algorithms. Freshly added algorithms active
+            after a new run.
+          </v-card-subtitle>
           <v-container>
             <v-chip
               color="yellow"
@@ -227,12 +227,13 @@
       :timeout="20000"
     >
       Performance may be degraded if too many algorithms are running in
-      parallel. To improve performance, switch off the visualization, run fewer
-      algorithms or cut the length of the sequence.
+      parallel. To improve performance, run fewer algorithms or cut the length
+      of the sequence.
       <v-btn class="mx-4" @click="notificationPerformance = false" text
-        >Schließen</v-btn
+        >close</v-btn
       >
     </v-snackbar>
+
     <v-dialog v-model="explaining" fullscreen>
       <ExplanationSettings
         :translationTablePairs="translationTablePairs"

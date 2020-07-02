@@ -75,9 +75,10 @@
             outlined
             type="warning"
             transition="scale-transition"
-            >DNA sequence is very long. This can lead to increased computation
-            times. If necessary, shorten the length.</v-alert
           >
+            DNA sequence is very long. This can lead to increased computation
+            times. If necessary, shorten the length.
+          </v-alert>
         </v-col>
       </v-row>
     </v-card>

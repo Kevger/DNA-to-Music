@@ -2,10 +2,45 @@
   <v-app>
     <v-app-bar color="green" dark app>
       <v-icon x-large>mdi-dna</v-icon>DNA Synthesizer - Future Of Making 2
-      <v-spacer></v-spacer>
+      <v-spacer />
       <v-btn color="green" dark small @click="explainingWhy = true"
         >About</v-btn
       >
+      <v-menu left bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item>
+            <v-btn
+              href="https://cellular-narratives.web.app"
+              target="_blank"
+              text
+            >
+              <span class="mr-2">Cellular Narratives</span>
+              <v-icon>mdi-account-switch-outline</v-icon>
+            </v-btn>
+          </v-list-item>
+          <v-list-item>
+            <v-btn
+              href="https://epidemic-simulations.web.app"
+              target="_blank"
+              text
+            >
+              <span class="mr-2">Epidemic Simulations</span>
+              <v-icon>mdi-open-in-new</v-icon>
+            </v-btn>
+          </v-list-item>
+          <v-list-item>
+            <v-btn href="https://creaition-webapp.web.app" target="_blank" text>
+              <span class="mr-2">Cre[ai]tion</span>
+              <v-icon>mdi-robot</v-icon>
+            </v-btn>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
 
     <v-content>
