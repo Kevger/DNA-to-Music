@@ -196,8 +196,8 @@
         <v-card>
           <v-card-title>Active Algorithms</v-card-title>
           <v-card-subtitle>
-            All parallel running algorithms. Freshly added algorithms active
-            after a new run.
+            All parallel running algorithms. Freshly added algorithms will be
+            active after a new run.
           </v-card-subtitle>
           <v-container>
             <v-chip

@@ -253,7 +253,7 @@ export const noteTableAminos = {
     gly: "G7",
     stp: null
   },
-  "Bass electric optimized": {
+  "Default 5": {
     phe: "A#2",
     leu: "A#3",
     ser: "A#4",
@@ -281,7 +281,7 @@ export const noteTableAminos = {
     stp: null
   },
 
-  "Cello optimized": {
+  "Default 6": {
     phe: "A#2",
     leu: "A#3",
     ser: "A#4",
@@ -311,7 +311,7 @@ export const noteTableAminos = {
     stp: null
   },
 
-  "electric guitar optimized": {
+  "Default 7": {
     phe: "A2",
     leu: "A3",
     ser: "A4",
@@ -341,7 +341,7 @@ export const noteTableAminos = {
     stp: null
   },
 
-  "acustic guitar optimized": {
+  "Default 8": {
     phe: "A#1",
     leu: "A#2",
     ser: "A#3",
@@ -370,7 +370,7 @@ export const noteTableAminos = {
     stp: null
   },
 
-  "clarinet optimized": {
+  "Default 9": {
     phe: "A#2",
     leu: "A#3",
     ser: "A#3",
@@ -400,7 +400,7 @@ export const noteTableAminos = {
     gly: null,
     stp: null
   },
-  "french-horn optimized": {
+  "Default 10": {
     phe: null,
     leu: "A0",
     ser: null,
@@ -431,7 +431,7 @@ export const noteTableAminos = {
     gly: "G1",
     stp: null
   },
-  "violin optimized": {
+  "Default 11": {
     phe: "A3",
     leu: null,
     ser: "A4",
@@ -459,7 +459,7 @@ export const noteTableAminos = {
     gly: "G6",
     stp: null
   },
-  "xylophone optimized": {
+  "Default 12": {
     phe: "C4",
     leu: "C5",
     ser: "C6",

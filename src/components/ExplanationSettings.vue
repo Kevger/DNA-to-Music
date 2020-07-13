@@ -37,10 +37,17 @@
             <v-card>
               <v-card-title>Starting position</v-card-title>
               <v-card-text>
-                Determines from which position in the DNA the algorithm should
-                start reading. A change of the start position by a single base
-                leads to completely different results for codons and thus for
-                notes.
+                <v-row>
+                  <v-col xs="12" sm="12" md="4" lg="4" xl="4">
+                    <v-img src="/img/startposition.png" :contain="true"></v-img>
+                  </v-col>
+                  <v-col xs="12" sm="12" md="8" lg="8" xl="8">
+                    Determines from which position in the DNA the algorithm
+                    should start reading. A change of the start position by a
+                    single base leads to completely different results for codons
+                    and thus for notes.
+                  </v-col>
+                </v-row>
               </v-card-text>
             </v-card>
           </v-col>
@@ -51,7 +58,7 @@
                 Timing notation of the notes
                 <v-row>
                   <v-col>
-                    <strong>n = note </strong>
+                    <strong>n = note</strong>
                   </v-col>
                   <v-col>
                     <strong>n.= dotted note</strong>
