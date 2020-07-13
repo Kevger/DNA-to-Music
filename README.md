@@ -1,24 +1,6 @@
-# fom2
+# DNA Synthesizer
 
 ## Project setup
-```
-npm install
-```
+The author has already attempted to create an artistic counterpart to the reductionist, transparent, incapacitating development of the neurosciences and neuromarketing by using their tools. Subsequently artistic interpretations of the transparent and structure-determined DNA are now to be implemented analogous to the biotechnological and genetic development. Behind every digital image, text or video there are ones or zeros, which receive their form and meaning exclusively through algorithmic interpretation. In the same way, behind every living being, no matter how different they seem to be, according to reductionist genetics there are only base sequences of A, G, C and T.
+There are unlimited possibilities to interpret things like DNA artistically. In nature, DNA is read sequentially, or rather interpreted sequentially. Therefore DNA is also sequentially structured so that the sequentiell interpretation makes sense or vice versa. To interpret this sequential structure, it also makes sense to use a sequential interpretation. Probably the most feasible way of an artistic algorithmic sequential interpretation is the generation of sound, which is why the attempt is made to create music from DNA. In nature, proteins also maintain their function through their specific sequential sequence of amino acids. The proteins are assembled on the basis of the sequential sequence of codons in the DNA. Instead of always reading dry words and structural formulas when dealing with biology, it would be interesting to listen to soulful sounds that have their origin in the blueprint of life. Not everybody understands structural formulas, but everybody understands music, even if this understanding is not rational, but rather sensual. Furthermore, why not convert the language of DNA into human language, since we already use letters to represent bases and amino acids? The attempt of a speech synthesis on the basis of DNA was also dared here in an experimental version.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
